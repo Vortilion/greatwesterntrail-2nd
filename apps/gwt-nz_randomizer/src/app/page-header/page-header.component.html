@@ -1,0 +1,28 @@
+<div class="page-header">
+  <mat-toolbar
+    color="primary"
+    class="main-toolbar toolbar"
+    [class.is-mobile]="isXSmall"
+  >
+    <button
+      type="button"
+      [hidden]="!isXSmall"
+      mat-icon-button
+      (click)="sidebarHandle.toggle()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name">
+      <span *ngIf="!isXSmall; else textXSmall">{{
+        'app-title' | transloco
+      }}</span>
+
+      <ng-template #textXSmall>
+        <span class="text-xl">{{ 'app-title-short' | transloco }}</span>
+      </ng-template>
+    </h1>
+
+    <span class="spacer"></span>
+    <app-language-selector></app-language-selector>
+  </mat-toolbar>
+</div>

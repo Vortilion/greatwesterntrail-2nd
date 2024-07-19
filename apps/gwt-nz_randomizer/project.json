@@ -1,0 +1,100 @@
+{
+  "name": "gwt-2nd_randomizer",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/gwt-2nd_randomizer/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/gwt-2nd_randomizer",
+        "index": "apps/gwt-2nd_randomizer/src/index.html",
+        "main": "apps/gwt-2nd_randomizer/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/gwt-2nd_randomizer/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/gwt-2nd_randomizer/src/favicon.ico",
+          "apps/gwt-2nd_randomizer/src/assets",
+          "apps/gwt-2nd_randomizer/src/manifest.webmanifest"
+        ],
+        "styles": [
+          "@angular/material/prebuilt-themes/pink-bluegrey.css",
+          "apps/gwt-2nd_randomizer/src/styles.scss",
+          "apps/gwt-2nd_randomizer/src/theme.scss"
+        ],
+        "scripts": [],
+        "serviceWorker": true,
+        "ngswConfigPath": "apps/gwt-2nd_randomizer/ngsw-config.json"
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "gwt-2nd_randomizer:build:production"
+        },
+        "development": {
+          "browserTarget": "gwt-2nd_randomizer:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "gwt-2nd_randomizer:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "apps/gwt-2nd_randomizer/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/gwt-2nd_randomizer/src/favicon.ico",
+          "apps/gwt-2nd_randomizer/src/assets",
+          "apps/gwt-2nd_randomizer/src/manifest.webmanifest"
+        ],
+        "styles": [
+          "@angular/material/prebuilt-themes/pink-bluegrey.css",
+          "apps/gwt-2nd_randomizer/src/styles.scss"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}
