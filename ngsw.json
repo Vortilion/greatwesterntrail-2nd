@@ -1,0 +1,95 @@
+{
+  "configVersion": 1,
+  "timestamp": 1721465661451,
+  "index": "https://vortilion.github.io/greatwesterntrail-2nd/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://vortilion.github.io/greatwesterntrail-2nd/favicon.ico",
+        "https://vortilion.github.io/greatwesterntrail-2nd/index.html",
+        "https://vortilion.github.io/greatwesterntrail-2nd/main.871c0c13ff279c2a.js",
+        "https://vortilion.github.io/greatwesterntrail-2nd/manifest.webmanifest",
+        "https://vortilion.github.io/greatwesterntrail-2nd/polyfills.70c2a063ee34af9f.js",
+        "https://vortilion.github.io/greatwesterntrail-2nd/runtime.ace626097a079d4c.js",
+        "https://vortilion.github.io/greatwesterntrail-2nd/styles.727a0ab7d85bd6bb.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/i18n/de.json",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/i18n/en.json",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-192x192.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-256x256.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-384x384.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-512x512.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-01.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-02.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-03.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-04.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-05.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-06.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-07.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-08.png",
+        "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-09.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/i18n/de.json": "7fb5064add3587fd3cd06257674996b0cda695ba",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/i18n/en.json": "55b06eb0d84971bf8088a5fe5d33cd3086fdf13d",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-192x192.png": "4cb7c6ff5ce8846d1b893d4fafcca4861603945d",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-256x256.png": "bc49c0198002cca31e43853817effea030efd1a4",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-384x384.png": "2d8acf78303942ec2e1fb0abba7fd53d8cc51ed4",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/icons/icon-512x512.png": "2e2e8679e4463fb121c10095adfa84335cf72599",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-01.png": "af0f9a58ef91c22a8d8d145c53de3c98f535b477",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-02.png": "8b78e906ab8dca113cbcddf6863a86cf283c54ef",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-03.png": "f38a4b964c5d694a7b55198b36d1da8c12c9787e",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-04.png": "653f8626a46e44c04dab15a836908538551f45f9",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-05.png": "ea2ae306460ac8f67796d0d6f95f4abbb80116dd",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-06.png": "823e7a90da826d22479d65179971ee72696714ab",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-07.png": "e5b541bdcd58fe821011bcd0ec31b9c642a09cfe",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-08.png": "ea84b6e6f8c677ff8ddb0cd183b0f5f9b471d9f7",
+    "https://vortilion.github.io/greatwesterntrail-2nd/assets/img/station-master-09.png": "4d5b1a0880aec27148b3b3e438e62a81d43fcda5",
+    "https://vortilion.github.io/greatwesterntrail-2nd/favicon.ico": "649678bf5790630b706035e5dd8e1806dc49009b",
+    "https://vortilion.github.io/greatwesterntrail-2nd/index.html": "7ebad21c07997850dc19a10503477cc819517e72",
+    "https://vortilion.github.io/greatwesterntrail-2nd/main.871c0c13ff279c2a.js": "2f6aee7f926af75ab32a0c4749f25d60d1d95f4e",
+    "https://vortilion.github.io/greatwesterntrail-2nd/manifest.webmanifest": "2628a901e6c208de430758da4393c065456787c3",
+    "https://vortilion.github.io/greatwesterntrail-2nd/polyfills.70c2a063ee34af9f.js": "1785440b0b9c1b3b22ea3741186331d0e9345ffc",
+    "https://vortilion.github.io/greatwesterntrail-2nd/runtime.ace626097a079d4c.js": "966d9b3310d7b3a1b8d819e332e8ee3fbdd3d6a3",
+    "https://vortilion.github.io/greatwesterntrail-2nd/styles.727a0ab7d85bd6bb.css": "b9313977fe4ce535762cf2f9665e9d94de696094"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
