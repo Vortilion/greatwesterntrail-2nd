@@ -14,10 +14,9 @@ import { MatSelectChange } from '@angular/material/select';
 export class HomeComponent implements OnInit {
   randomNeutralBuildings: Tile[];
   randomPlayerBuildings: Tile[];
-  randomHarborMasters: Tile[];
+  randomStationMasters: Tile[];
   playerCount!: number;
   playerCountList!: PlayerCountOption[];
-  randomDeckbuildingModules: string[];
   isXSmall: boolean;
   isMax1280: boolean;
 
@@ -88,11 +87,8 @@ export class HomeComponent implements OnInit {
     this.randomNeutralBuildings =
       this.applicationConfigService.getRandomNeutralBuildingOrder();
 
-    this.randomHarborMasters =
-      this.applicationConfigService.getRandomHarborMasters();
-
-    this.randomDeckbuildingModules =
-      this.applicationConfigService.getRandomDeckbuildingModules();
+    this.randomStationMasters =
+      this.applicationConfigService.getRandomStationMasters();
 
     this.randomPlayerBuildings =
       this.applicationConfigService.getRandomPlayerBuildings();

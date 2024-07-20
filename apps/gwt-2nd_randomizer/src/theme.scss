@@ -3,19 +3,19 @@
 
 @include mat.core();
 
-$my-primary: mat.define-palette(mat.$cyan-palette, 800);
+$my-primary: mat.define-palette(mat.$blue-palette, 800);
 $my-accent: mat.define-palette(mat.$light-blue-palette, A200, A100, A400);
 $my-typography: mat.define-typography-config();
 
 $my-theme: mat.define-dark-theme(
-    (
-        color: (
-            primary: $my-primary,
-            accent: $my-accent,
-        ),
-        typography: $my-typography,
-        density: 0,
-    )
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+    ),
+    typography: $my-typography,
+    density: 0,
+  )
 );
 
 @include mat.all-component-themes($my-theme);

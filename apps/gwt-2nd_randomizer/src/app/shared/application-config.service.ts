@@ -183,15 +183,37 @@ export class ApplicationConfigService {
         },
       ],
     },
+    {
+      title: '11',
+      sides: [
+        {
+          title: 'a',
+        },
+        {
+          title: 'b',
+        },
+      ],
+    },
+    {
+      title: '12',
+      sides: [
+        {
+          title: 'a',
+        },
+        {
+          title: 'b',
+        },
+      ],
+    },
   ];
   deckBuildingModules = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  harborMasters: Tile[] = [
+  stationMasters: Tile[] = [
     {
       title: '1',
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-01.png',
+          image: 'assets/img/station-master-01.png',
         },
       ],
     },
@@ -200,7 +222,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-02.png',
+          image: 'assets/img/station-master-02.png',
         },
       ],
     },
@@ -209,7 +231,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-03.png',
+          image: 'assets/img/station-master-03.png',
         },
       ],
     },
@@ -218,7 +240,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-04.png',
+          image: 'assets/img/station-master-04.png',
         },
       ],
     },
@@ -227,7 +249,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-05.png',
+          image: 'assets/img/station-master-05.png',
         },
       ],
     },
@@ -236,7 +258,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-06.png',
+          image: 'assets/img/station-master-06.png',
         },
       ],
     },
@@ -245,7 +267,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-07.png',
+          image: 'assets/img/station-master-07.png',
         },
       ],
     },
@@ -254,7 +276,7 @@ export class ApplicationConfigService {
       sides: [
         {
           title: 'front',
-          image: 'assets/img/harbormaster-08.png',
+          image: 'assets/img/station-master-08.png',
         },
       ],
     },
@@ -264,12 +286,12 @@ export class ApplicationConfigService {
     return this.shuffleArray(this.neutralBuildings);
   }
 
-  getRandomHarborMasters(): Tile[] {
+  getRandomStationMasters(): Tile[] {
     let selection: Tile[] = [];
-    let shuffledHarborMasters = this.shuffleArray(this.harborMasters);
+    let shuffledStationMasters = this.shuffleArray(this.stationMasters);
 
     for (let i = 0; i < 5; i++) {
-      selection.push(shuffledHarborMasters.pop());
+      selection.push(shuffledStationMasters.pop());
     }
 
     return selection;

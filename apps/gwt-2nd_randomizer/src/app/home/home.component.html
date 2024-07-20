@@ -75,45 +75,25 @@
                 </ul>
               </mat-grid-tile>
               <mat-grid-tile
-                *ngIf="randomHarborMasters && randomHarborMasters.length > 0"
+                *ngIf="randomStationMasters && randomStationMasters.length > 0"
               >
                 <mat-grid-tile-header>
                   <h3>
                     <span class="text-2xl xSmall:text-base">{{
-                      t('harbor-masters-label')
+                      t('station-masters-label')
                     }}</span
                     >:
                   </h3>
                 </mat-grid-tile-header>
                 <div class="flex">
-                  <div *ngFor="let randomHarborMaster of randomHarborMasters">
+                  <div *ngFor="let randomStationMaster of randomStationMasters">
                     <img
                       class="px-1 xSmall:px-2 md:px-4"
-                      [src]="randomHarborMaster.sides[0].image"
-                      alt="Harbor Master"
+                      [src]="randomStationMaster.sides[0].image"
+                      alt="Station Master"
                     />
                   </div>
                 </div>
-              </mat-grid-tile>
-              <mat-grid-tile *ngIf="randomDeckbuildingModules.length > 0">
-                <mat-grid-tile-header>
-                  <h3>
-                    <span class="text-2xl xSmall:text-base">{{
-                      t('deckbuilding-modules-label')
-                    }}</span
-                    >:
-                  </h3>
-                </mat-grid-tile-header>
-                <ul class="flex">
-                  <li
-                    *ngFor="
-                      let randomDeckbuildingModule of randomDeckbuildingModules
-                    "
-                    class="px-2 text-3xl xSmall:text-xl"
-                  >
-                    <span>{{ randomDeckbuildingModule }}</span>
-                  </li>
-                </ul>
               </mat-grid-tile>
               <mat-grid-tile>
                 <mat-grid-tile-header>
@@ -148,76 +128,73 @@
               </mat-card-header>
               <mat-card-content>
                 <ol>
-                  <li>1. {{ t('further-steps-step1') }}</li>
+                  <li>
+                    1. {{ t('further-steps-step1') }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>
+                        {{ t('further-steps-step1a') }}
+                      </li>
+                      <li>
+                        {{ t('further-steps-step1b') }}
+                      </li>
+                    </ul>
+                  </li>
                   <li>
                     2. {{ t('further-steps-step2') }}
                     <ul class="list-disc pl-8 text-gray-400">
-                      <li *ngIf="playerCount === 2">
+                      <li>
                         {{ t('further-steps-step21') }}
                       </li>
-                      <li *ngIf="playerCount === 3">
+                      <li>
                         {{ t('further-steps-step22') }}
                       </li>
-                      <li *ngIf="playerCount === 4">
+                      <li>
                         {{ t('further-steps-step23') }}
                       </li>
+                      <li>
+                        {{ t('further-steps-step24') }}
+                      </li>
                     </ul>
                   </li>
-                  <li>3. {{ t('further-steps-step3') }}</li>
-                  <li>4. {{ t('further-steps-step4') }}</li>
                   <li>
-                    5. {{ t('further-steps-step5') }}
+                    3. {{ t('further-steps-step3') }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>
+                        {{ t('further-steps-step31') }}
+                      </li>
+                      <li>
+                        {{ t('further-steps-step32') }}
+                      </li>
+                      <li>
+                        {{ t('further-steps-step33') }}
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    4. {{ t('further-steps-step4') }}
                     <ul class="list-disc pl-8 text-gray-400">
                       <li *ngIf="playerCount === 2">
-                        {{ t('further-steps-step51') }}
+                        {{ t('further-steps-step41') }}
                       </li>
                       <li *ngIf="playerCount === 3">
-                        {{ t('further-steps-step52') }}
+                        {{ t('further-steps-step42') }}
                       </li>
                       <li *ngIf="playerCount === 4">
-                        {{ t('further-steps-step53') }}
+                        {{ t('further-steps-step43') }}
                       </li>
                     </ul>
                   </li>
-                  <li>6. {{ t('further-steps-step6') }}</li>
-
-                  <li>7. {{ t('further-steps-step7') }}</li>
-
+                  <li>5. {{ t('further-steps-step5') }}</li>
                   <li>
-                    8. {{ t('further-steps-step8') }}
+                    11. {{ t('further-steps-step6') }}
                     <ul class="list-disc pl-8 text-gray-400">
-                      <li *ngIf="playerCount === 2">
-                        {{ t('further-steps-step81') }}
-                      </li>
-                      <li *ngIf="playerCount === 3">
-                        {{ t('further-steps-step82') }}
-                      </li>
-                      <li *ngIf="playerCount === 4">
-                        {{ t('further-steps-step83') }}
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    9. {{ t('further-steps-step9') }}
-                    <ul class="list-disc pl-8 text-gray-400">
-                      <li>{{ t('further-steps-step91') }}</li>
-                      <li>{{ t('further-steps-step92') }}</li>
-                      <li>{{ t('further-steps-step93') }}</li>
-                      <li>{{ t('further-steps-step94') }}</li>
-                    </ul>
-                  </li>
-                  <li>10. {{ t('further-steps-step10') }}</li>
-
-                  <li>
-                    11. {{ t('further-steps-step11') }}
-                    <ul class="list-disc pl-8 text-gray-400">
-                      <li>{{ t('further-steps-step111') }}</li>
-                      <li>{{ t('further-steps-step112') }}</li>
+                      <li>{{ t('further-steps-step61') }}</li>
+                      <li>{{ t('further-steps-step62') }}</li>
                       <li *ngIf="playerCount >= 3">
-                        {{ t('further-steps-step113') }}
+                        {{ t('further-steps-step63') }}
                       </li>
                       <li *ngIf="playerCount > 3">
-                        {{ t('further-steps-step114') }}
+                        {{ t('further-steps-step64') }}
                       </li>
                     </ul>
                   </li>
