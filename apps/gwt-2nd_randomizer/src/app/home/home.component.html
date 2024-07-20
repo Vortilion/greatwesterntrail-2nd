@@ -33,6 +33,19 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
+
+          <h3>{{ t('variant-label') }}:</h3>
+          <div class="options-list">
+            <mat-slide-toggle
+              class="options-list__option"
+              color="primary"
+              name="useSimmental"
+              [checked]="useSimmental"
+              (change)="onVariantChange($event)"
+            >
+              Simmental
+            </mat-slide-toggle>
+          </div>
         </div>
       </mat-sidenav>
 
@@ -127,9 +140,9 @@
                 </h3>
               </mat-card-header>
               <mat-card-content>
-                <ol>
+                <ol class="pl-4 list-decimal">
                   <li>
-                    1. {{ t('further-steps-step1') }}
+                    {{ t('further-steps-step1') }}
                     <ul class="list-disc pl-8 text-gray-400">
                       <li>
                         {{ t('further-steps-step1a') }}
@@ -140,7 +153,7 @@
                     </ul>
                   </li>
                   <li>
-                    2. {{ t('further-steps-step2') }}
+                    {{ t('further-steps-step2') }}
                     <ul class="list-disc pl-8 text-gray-400">
                       <li>
                         {{ t('further-steps-step21') }}
@@ -157,7 +170,7 @@
                     </ul>
                   </li>
                   <li>
-                    3. {{ t('further-steps-step3') }}
+                    {{ t('further-steps-step3') }}
                     <ul class="list-disc pl-8 text-gray-400">
                       <li>
                         {{ t('further-steps-step31') }}
@@ -171,22 +184,58 @@
                     </ul>
                   </li>
                   <li>
-                    4. {{ t('further-steps-step4') }}
+                    <ng-container *ngIf="useSimmental; else no_simmental">{{
+                      t('further-steps-step4_simmental')
+                    }}</ng-container>
+
+                    <ng-template #no_simmental>{{
+                      t('further-steps-step4')
+                    }}</ng-template>
                     <ul class="list-disc pl-8 text-gray-400">
                       <li *ngIf="playerCount === 2">
-                        {{ t('further-steps-step41') }}
+                        <ng-container
+                          *ngIf="useSimmental; else no_simmental_2p"
+                          >{{
+                            t('further-steps-step41_simmental')
+                          }}</ng-container
+                        >
+                        <ng-template #no_simmental_2p>{{
+                          t('further-steps-step41')
+                        }}</ng-template>
                       </li>
                       <li *ngIf="playerCount === 3">
-                        {{ t('further-steps-step42') }}
+                        <ng-container
+                          *ngIf="useSimmental; else no_simmental_3p"
+                          >{{
+                            t('further-steps-step42_simmental')
+                          }}</ng-container
+                        >
+                        <ng-template #no_simmental_3p>{{
+                          t('further-steps-step42')
+                        }}</ng-template>
                       </li>
                       <li *ngIf="playerCount === 4">
-                        {{ t('further-steps-step43') }}
+                        <ng-container
+                          *ngIf="useSimmental; else no_simmental_4p"
+                          >{{
+                            t('further-steps-step43_simmental')
+                          }}</ng-container
+                        >
+                        <ng-template #no_simmental_4p>{{
+                          t('further-steps-step43')
+                        }}</ng-template>
                       </li>
                     </ul>
                   </li>
-                  <li>5. {{ t('further-steps-step5') }}</li>
+                  <li *ngIf="useSimmental">
+                    {{ t('further-steps-simmental2') }}
+                  </li>
+                  <li *ngIf="useSimmental">
+                    {{ t('further-steps-simmental3') }}
+                  </li>
+                  <li>{{ t('further-steps-step5') }}</li>
                   <li>
-                    11. {{ t('further-steps-step6') }}
+                    {{ t('further-steps-step6') }}
                     <ul class="list-disc pl-8 text-gray-400">
                       <li>{{ t('further-steps-step61') }}</li>
                       <li>{{ t('further-steps-step62') }}</li>

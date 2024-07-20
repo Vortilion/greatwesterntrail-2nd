@@ -5,6 +5,8 @@ import { Tile, TileSide } from '../models/tile.model';
   providedIn: 'root',
 })
 export class ApplicationConfigService {
+  useSimmental = new EventEmitter<boolean>();
+
   playerCount = new EventEmitter<number>();
   neutralBuildings: Tile[] = [
     {

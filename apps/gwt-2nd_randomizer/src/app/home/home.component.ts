@@ -5,6 +5,7 @@ import { Tile } from '../models/tile.model';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { PlayerCountOption } from '../models/player-count-option.model';
 import { MatSelectChange } from '@angular/material/select';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ export class HomeComponent implements OnInit {
   playerCountList!: PlayerCountOption[];
   isXSmall: boolean;
   isMax1280: boolean;
+  useSimmental!: boolean;
 
   constructor(
     private applicationConfigService: ApplicationConfigService,
@@ -43,6 +45,8 @@ export class HomeComponent implements OnInit {
       },
     ];
 
+    this.useSimmental = false;
+
     this.responsive.observe(Breakpoints.XSmall).subscribe((result) => {
       if (result.matches) {
         this.isXSmall = true;
@@ -65,9 +69,21 @@ export class HomeComponent implements OnInit {
         : this.storage.set('rar-playerCount', 2).subscribe(() => {});
     });
 
+    this.storage.get('rar-useSimmental').subscribe((useSimmental) => {
+      useSimmental !== undefined && typeof useSimmental === 'boolean'
+        ? this.applicationConfigService.useSimmental.emit(useSimmental)
+        : this.storage.set('rar-useSimmental', false).subscribe(() => {});
+    });
+
     this.applicationConfigService.playerCount.subscribe(
       (playerCount: number) => {
         this.playerCount = playerCount;
+      },
+    );
+
+    this.applicationConfigService.useSimmental.subscribe(
+      (useSimmental: boolean) => {
+        this.useSimmental = useSimmental;
       },
     );
 
@@ -81,6 +97,11 @@ export class HomeComponent implements OnInit {
   onPlayerCountChange(event: MatSelectChange) {
     this.storage.set('rar-playerCount', event.value).subscribe(() => {});
     this.emitPlayerCount(event.value);
+  }
+
+  onVariantChange(event: MatSlideToggleChange) {
+    this.storage.set('rar-useSimmental', event.checked).subscribe(() => {});
+    this.applicationConfigService.useSimmental.emit(event.checked);
   }
 
   randomizeSetup() {
