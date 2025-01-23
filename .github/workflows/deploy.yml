@@ -5,22 +5,17 @@ on:
     branches: ['main']
 
 jobs:
-  deploy:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
-
-      - name: Build Angular app
-        run: npm install && npm run build:gh-pages
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
 
       - uses: actions/cache@v4
         with:
@@ -28,6 +23,11 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      - name: Build Angular app
+        run: |
+          npm ci
+          npm run build:gh-pages
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
