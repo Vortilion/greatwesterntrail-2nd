@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "nx serve gwt-2nd_randomizer",
     "build": "nx build gwt-2nd_randomizer --no-cloud",
-    "build:gh-pages": "nx build gwt-2nd_randomizer --no-cloud --base-href \"https://vortilion.github.io/greatwesterntrail-2nd/\"",
+    "build:gh-pages": "nx build gwt-2nd_randomizer --no-cloud --prod --base-href=/greatwesterntrail-2nd/",
     "deploy:gh-pages": "npx angular-cli-ghpages --dir=dist/apps/gwt-2nd_randomizer",
     "build:deploy:gh-pages": "npm run build:gh-pages && npm run deploy:gh-pages",
     "watch": "nx build gwt-2nd_randomizer --watch --configuration development",
