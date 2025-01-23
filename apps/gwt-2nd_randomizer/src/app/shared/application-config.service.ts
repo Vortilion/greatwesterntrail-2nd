@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Tile, TileSide } from '../models/tile.model';
+import { Tile } from '../models/tile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -59,14 +59,6 @@ export class ApplicationConfigService {
     },
     {
       title: 'G',
-      sides: [
-        {
-          title: 'front',
-        },
-      ],
-    },
-    {
-      title: 'H',
       sides: [
         {
           title: 'front',
@@ -208,7 +200,7 @@ export class ApplicationConfigService {
       ],
     },
   ];
-  deckBuildingModules = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+
   stationMasters: Tile[] = [
     {
       title: '1',
@@ -297,21 +289,6 @@ export class ApplicationConfigService {
     }
 
     return selection;
-  }
-
-  getRandomDeckbuildingModules(): string[] {
-    let selection: string[] = [];
-    let shuffledDeckbuildingModules = this.shuffleArray(
-      this.deckBuildingModules,
-    );
-
-    for (let i = 0; i < 4; i++) {
-      selection.push(shuffledDeckbuildingModules.pop());
-    }
-
-    return selection.sort((a, b) => {
-      return parseInt(a) - parseInt(b);
-    });
   }
 
   getRandomPlayerBuildings(): Tile[] {

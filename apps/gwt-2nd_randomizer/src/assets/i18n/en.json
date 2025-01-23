@@ -43,6 +43,7 @@
   "btn-setup-label": "New Setup",
   "en-language-label": "EN",
   "de-language-label": "DE",
+  "pl-language-label": "PL",
   "messages": {
     "update-available": "Update available"
   }

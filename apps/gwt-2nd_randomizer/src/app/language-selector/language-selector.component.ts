@@ -12,10 +12,13 @@ import {
 })
 export class LanguageSelectorComponent implements OnInit {
   activeLang: any;
+  availableLangs: any[];
 
   constructor(private translocoService: TranslocoService) {}
   ngOnInit(): void {
     const browserLang: string = `${getBrowserLang()}`;
+
+    this.availableLangs = this.translocoService.getAvailableLangs();
 
     if (this.translocoService.isLang(browserLang)) {
       this.activeLang = getBrowserLang();
