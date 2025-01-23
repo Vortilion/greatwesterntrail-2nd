@@ -18,7 +18,7 @@ import { PageHeaderComponent } from './page-header/page-header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TranslocoService } from '@ngneat/transloco';
+import { TranslocoService } from '@jsverse/transloco';
 import { PageFooterComponent } from './page-footer/page-footer.component';
 import { filter } from 'rxjs';
 

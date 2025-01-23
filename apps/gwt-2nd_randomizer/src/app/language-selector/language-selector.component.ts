@@ -3,7 +3,7 @@ import {
   AvailableLangs,
   TranslocoService,
   getBrowserLang,
-} from '@ngneat/transloco';
+} from '@jsverse/transloco';
 
 @Component({
   selector: 'app-language-selector',
