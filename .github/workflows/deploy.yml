@@ -43,11 +43,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          path: './dist/apps/gwt-2nd_randomizer/'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: './dist/apps/gwt-2nd_randomizer/'
