@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1737667523978,
+  "timestamp": 1737751206850,
   "index": "/greatwesterntrail-2nd/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/greatwesterntrail-2nd/favicon.ico",
         "/greatwesterntrail-2nd/index.html",
-        "/greatwesterntrail-2nd/main.ca26ca2f1d6ead58.js",
+        "/greatwesterntrail-2nd/main.6ea5213c626ef6ff.js",
         "/greatwesterntrail-2nd/manifest.webmanifest",
         "/greatwesterntrail-2nd/polyfills.70c2a063ee34af9f.js",
         "/greatwesterntrail-2nd/runtime.ace626097a079d4c.js",
@@ -51,9 +51,9 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/greatwesterntrail-2nd/assets/i18n/de.json": "ae1fb63a993dc1c4e7b7b5b504c555c35828390d",
-    "/greatwesterntrail-2nd/assets/i18n/en.json": "b4ad1eac116761c577463b0a6417f620ae03622f",
-    "/greatwesterntrail-2nd/assets/i18n/pl.json": "9c4dd0e483cf2bb078e544507478d6d7ffc47046",
+    "/greatwesterntrail-2nd/assets/i18n/de.json": "7dc97839f3632c81d66a35d3e1be3f62f4aeb36e",
+    "/greatwesterntrail-2nd/assets/i18n/en.json": "ef4ed36488db699d356c8d16fffa20467fc50c9b",
+    "/greatwesterntrail-2nd/assets/i18n/pl.json": "28bd99f56ff58e001303943605a532a05f322c4f",
     "/greatwesterntrail-2nd/assets/icons/icon-192x192.png": "4cb7c6ff5ce8846d1b893d4fafcca4861603945d",
     "/greatwesterntrail-2nd/assets/icons/icon-256x256.png": "bc49c0198002cca31e43853817effea030efd1a4",
     "/greatwesterntrail-2nd/assets/icons/icon-384x384.png": "2d8acf78303942ec2e1fb0abba7fd53d8cc51ed4",
@@ -68,8 +68,8 @@
     "/greatwesterntrail-2nd/assets/img/station-master-08.png": "ea84b6e6f8c677ff8ddb0cd183b0f5f9b471d9f7",
     "/greatwesterntrail-2nd/assets/img/station-master-09.png": "4d5b1a0880aec27148b3b3e438e62a81d43fcda5",
     "/greatwesterntrail-2nd/favicon.ico": "649678bf5790630b706035e5dd8e1806dc49009b",
-    "/greatwesterntrail-2nd/index.html": "bdfa5b3ad1dee399b5c97cb15ab51206f4c8b99d",
-    "/greatwesterntrail-2nd/main.ca26ca2f1d6ead58.js": "b070c926e5cd73f57c7a5a1f77849c559d69c3a2",
+    "/greatwesterntrail-2nd/index.html": "17ac6b41422dac67e5fa51938197d81a9b944032",
+    "/greatwesterntrail-2nd/main.6ea5213c626ef6ff.js": "d2a1d2ae116e0a3cde1ab71657b7a67b5df05134",
     "/greatwesterntrail-2nd/manifest.webmanifest": "03b61c242f7b25bcc937085bb335ef535d86fd1c",
     "/greatwesterntrail-2nd/polyfills.70c2a063ee34af9f.js": "1785440b0b9c1b3b22ea3741186331d0e9345ffc",
     "/greatwesterntrail-2nd/runtime.ace626097a079d4c.js": "966d9b3310d7b3a1b8d819e332e8ee3fbdd3d6a3",

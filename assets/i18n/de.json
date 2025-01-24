@@ -10,6 +10,7 @@
   "player-count-label": "Anzahl Spieler",
   "player-count-select-label": "Bitte auswählen",
   "variant-label": "Variante",
+  "variant-simmental": "Simmental",
   "further-steps-step1": "Zieht 7 Plättchen mit einer 1 auf der Rückseite vom Kansas-City-Vorrat und legt diese nacheinander offen auf den Spielplan. Wohin ein Plättchen gelegt wird, hängt von seiner Art ab:",
   "further-steps-step1a": "Falls es ein Banditenplättchen ist (grün oder orange), legt es ins Banditen-Gebiet jeweils auf das leere Feld mit der niedrigsten Zahl (1 bis 9).",
   "further-steps-step1b": "Falls es ein Gefahrenplättchen ist, legt es in der zugehörigen Gefahrenzone (Überschwemmung, Dürre oder Steinschlag) jeweils auf das leere Feld mit der niedrigsten Zahl (1 bis 4). Sollten dort alle 4 Felder belegt sein, legt es zurück in den Stoffbeutel und zieht stattdessen ein neues Plättchen.",

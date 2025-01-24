@@ -10,6 +10,7 @@
   "player-count-label": "Liczba graczy",
   "player-count-select-label": "Wybierz",
   "variant-label": "Wariant",
+  "variant-simmental": "simentalski",
   "further-steps-step1": "Wylosuj 7 żetonów z zasobów Kansas City, z woreczka oznaczonego numerem 1. Miejsce ułożenia żetonu na planszy zależy od jego rodzaju:",
   "further-steps-step1a": "W przypadku żetonu bandyty (zielony albo pomarańczowy), połóż go na pustym polu o najniższej wartości (od 1 do 9) na obszarze bandytów.",
   "further-steps-step1b": "W przypadku żetonu niebezpieczeństwa, połóż go na pustym polu o najniższej wartości (1 do 4) na odpowiednim obszarze niebezpieczeństwa (powódź, susza, lawina). Jeśli nie ma już wolnych pól dla danego rodzaju niebezpieczeństwa, odłóż ten żeton do odpowiedniego woreczka w zasobach Kansas City i dociągnij nowy.",
