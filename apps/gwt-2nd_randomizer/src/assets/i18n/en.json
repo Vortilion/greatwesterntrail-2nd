@@ -10,6 +10,7 @@
   "player-count-label": "Number of players",
   "player-count-select-label": "Please select",
   "variant-label": "Variant",
+  "variant-simmental": "Simmental",
   "further-steps-step1": "From the Kansas City supply, draw 7 tiles with a on their back and place them one after the other onto the game board. Where a tile is placed depends on its type:",
   "further-steps-step1a": "If it is an outlaw tile (green or orange), place it in the outlaw section onto the empty space with the lowest number (1 to 9).",
   "further-steps-step1b": "If it is a hazard tile, place it in its corresponding hazard section (flood, drought or rockfall) onto the empty space with the lowest number (1 to 4). If there is no empty space left, return it to the bag and draw a new tile.",
