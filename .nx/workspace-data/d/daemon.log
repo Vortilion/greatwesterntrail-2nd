@@ -153,3 +153,93 @@
 [NX Daemon Server] - 2025-02-04T20:14:31.674Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2025-02-04T20:14:31.674Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (sources)
 [NX Daemon Server] - 2025-02-04T20:14:31.674Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (outputs)
+[NX Daemon Server] - 2025-02-04T20:15:00.106Z - Started listening on: /var/folders/w3/lkygt3k159sd43bn75x5mdr00000gn/T/be1d4c99f08808d6cfc6/d.sock
+[NX Daemon Server] - 2025-02-04T20:15:00.108Z - [WATCHER]: Subscribed to changes within: /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (native)
+[NX Daemon Server] - 2025-02-04T20:15:00.115Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:15:00.116Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-02-04T20:15:00.116Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:15:00.117Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2025-02-04T20:15:00.183Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:00.212Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-02-04T20:15:00.212Z - [REQUEST]: 
+[NX Daemon Server] - 2025-02-04T20:15:00.212Z - [REQUEST]: 
+[NX Daemon Server] - 2025-02-04T20:15:00.214Z - Time taken for 'loadNxPlugins' 94.014958ms
+[NX Daemon Server] - 2025-02-04T20:15:00.247Z - Time taken for 'build-project-configs' 25.918791999999996ms
+[NX Daemon Server] - 2025-02-04T20:15:00.259Z - [SYNC]: collect registered sync generators
+[NX Daemon Server] - 2025-02-04T20:15:00.260Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2025-02-04T20:15:00.260Z - Time taken for 'total for creating and serializing project graph' 142.907709ms
+[NX Daemon Server] - 2025-02-04T20:15:00.262Z - Done responding to the client project-graph
+[NX Daemon Server] - 2025-02-04T20:15:00.262Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 143. Response time: 2.
+[NX Daemon Server] - 2025-02-04T20:15:00.458Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2025-02-04T20:15:00.458Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2025-02-04T20:15:00.458Z - Handled HASH_TASKS. Handling time: 8. Response time: 0.
+[NX Daemon Server] - 2025-02-04T20:15:01.476Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-02-04T20:15:01.477Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:15:01.477Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-02-04T20:15:01.479Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2025-02-04T20:15:01.479Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2025-02-04T20:15:01.479Z - Time taken for 'total for creating and serializing project graph' 0.21020900000007714ms
+[NX Daemon Server] - 2025-02-04T20:15:01.481Z - Done responding to the client project-graph
+[NX Daemon Server] - 2025-02-04T20:15:01.481Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 2.
+[NX Daemon Server] - 2025-02-04T20:15:03.469Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:06.562Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:06.658Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:06.711Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:06.764Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:06.951Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.015Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.087Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.142Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.252Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.338Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.784Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.857Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:07.920Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.009Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.063Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.137Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.191Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.452Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.505Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.557Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.645Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.762Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.823Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.874Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:08.993Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.087Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.145Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.199Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.250Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.315Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.421Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.493Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.579Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.631Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.746Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.803Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:09.855Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:13.750Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:14.378Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:14.662Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:15:14.694Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:15:14.703Z - [REQUEST]: Responding to the client. recordOutputsHash
+[NX Daemon Server] - 2025-02-04T20:15:14.703Z - Done responding to the client recordOutputsHash
+[NX Daemon Server] - 2025-02-04T20:15:14.703Z - Handled RECORD_OUTPUTS_HASH. Handling time: 2. Response time: 0.
+[NX Daemon Server] - 2025-02-04T20:15:14.740Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-02-04T20:15:14.757Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:16:32.984Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:16:32.984Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (sources)
+[NX Daemon Server] - 2025-02-04T20:16:32.984Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (outputs)
+[NX Daemon Server] - 2025-02-04T20:16:32.985Z - Server stopped because: "LOCK_FILES_CHANGED"
+[NX Daemon Server] - 2025-02-04T20:17:09.407Z - Started listening on: /var/folders/w3/lkygt3k159sd43bn75x5mdr00000gn/T/be1d4c99f08808d6cfc6/d.sock
+[NX Daemon Server] - 2025-02-04T20:17:09.409Z - [WATCHER]: Subscribed to changes within: /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (native)
+[NX Daemon Server] - 2025-02-04T20:17:09.409Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:17:09.410Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-02-04T20:17:09.411Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:17:09.412Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2025-02-04T20:17:09.412Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2025-02-04T20:17:09.412Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2025-02-04T20:17:09.414Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-02-04T20:17:09.414Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (sources)
+[NX Daemon Server] - 2025-02-04T20:17:09.414Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (outputs)
