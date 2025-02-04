@@ -6,12 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import {
   ServiceWorkerModule,
-  SwPush,
   SwUpdate,
   VersionDetectedEvent,
-  VersionReadyEvent,
 } from '@angular/service-worker';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -40,11 +41,10 @@ import { filter } from 'rxjs';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
     }),
-    HttpClientModule,
     TranslocoRootModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent],
 })
 export class AppModule {
