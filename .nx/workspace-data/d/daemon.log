@@ -136,3 +136,20 @@
 [NX Daemon Server] - 2025-02-04T20:02:59.806Z - [SYNC]: project graph hash is the same, not collecting task sync generators
 [NX Daemon Server] - 2025-02-04T20:02:59.806Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX Daemon Server] - 2025-02-04T20:02:59.806Z - Time taken for 'total execution time for createProjectGraph()' 16.265749998390675ms
+[NX Daemon Server] - 2025-02-04T20:10:54.464Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2025-02-04T20:10:54.464Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:10:54.464Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-02-04T20:10:54.464Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (sources)
+[NX Daemon Server] - 2025-02-04T20:10:54.465Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (outputs)
+[NX Daemon Server] - 2025-02-04T20:10:54.465Z - Server stopped because: "LOCK_FILES_CHANGED"
+[NX Daemon Server] - 2025-02-04T20:14:31.669Z - Started listening on: /var/folders/w3/lkygt3k159sd43bn75x5mdr00000gn/T/be1d4c99f08808d6cfc6/d.sock
+[NX Daemon Server] - 2025-02-04T20:14:31.671Z - [WATCHER]: Subscribed to changes within: /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (native)
+[NX Daemon Server] - 2025-02-04T20:14:31.672Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:14:31.672Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-02-04T20:14:31.673Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:14:31.673Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2025-02-04T20:14:31.674Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2025-02-04T20:14:31.674Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 1.
+[NX Daemon Server] - 2025-02-04T20:14:31.674Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-02-04T20:14:31.674Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (sources)
+[NX Daemon Server] - 2025-02-04T20:14:31.674Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (outputs)
