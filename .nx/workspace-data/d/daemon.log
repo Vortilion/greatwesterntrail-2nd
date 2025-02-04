@@ -254,3 +254,15 @@
 [NX Daemon Server] - 2025-02-04T20:27:57.212Z - Closed a connection. Number of open connections: 0
 [NX Daemon Server] - 2025-02-04T20:27:57.212Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (sources)
 [NX Daemon Server] - 2025-02-04T20:27:57.212Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (outputs)
+[NX Daemon Server] - 2025-02-04T20:37:31.251Z - Started listening on: /var/folders/w3/lkygt3k159sd43bn75x5mdr00000gn/T/be1d4c99f08808d6cfc6/d.sock
+[NX Daemon Server] - 2025-02-04T20:37:31.253Z - [WATCHER]: Subscribed to changes within: /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (native)
+[NX Daemon Server] - 2025-02-04T20:37:31.255Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:37:31.255Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-02-04T20:37:31.256Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-04T20:37:31.257Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2025-02-04T20:37:31.257Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2025-02-04T20:37:31.257Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 0.
+[NX Daemon Server] - 2025-02-04T20:37:31.258Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (sources)
+[NX Daemon Server] - 2025-02-04T20:37:31.259Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-02-04T20:37:31.259Z - [WATCHER]: Stopping the watcher for /Users/sascha/DEV/GitHub/greatwesterntrail-2nd (outputs)
+[NX Daemon Server] - 2025-02-04T20:37:31.259Z - Server stopped because: "Request to shutdown"
