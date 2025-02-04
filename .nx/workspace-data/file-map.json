@@ -33,7 +33,6 @@
     "@nx/workspace": "19.8.4",
     "@schematics/angular": "~18.2.7",
     "@types/jasmine": "~5.1.4",
-    "angular-cli-ghpages": "^2.0.1",
     "autoprefixer": "^10.4.20",
     "eslint-config-prettier": "9.1.0",
     "jasmine-core": "~5.3.0",
@@ -427,11 +426,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "8901184541461340270"
+        "hash": "4602409118792210769"
       },
       {
         "file": "package.json",
-        "hash": "8622817897623678741"
+        "hash": "9045772795006119118"
       },
       {
         "file": "tailwind.config.js",

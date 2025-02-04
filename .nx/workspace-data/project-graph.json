@@ -169,15 +169,6 @@
         "hash": "12644424611663784575"
       }
     },
-    "npm:@angular-devkit/architect@0.1800.7": {
-      "type": "npm",
-      "name": "npm:@angular-devkit/architect@0.1800.7",
-      "data": {
-        "version": "0.1800.7",
-        "packageName": "@angular-devkit/architect",
-        "hash": "15734375127204680965"
-      }
-    },
     "npm:@angular-devkit/build-angular": {
       "type": "npm",
       "name": "npm:@angular-devkit/build-angular",
@@ -239,15 +230,6 @@
         "version": "18.2.14",
         "packageName": "@angular-devkit/core",
         "hash": "13137412281587586698"
-      }
-    },
-    "npm:@angular-devkit/core@18.0.7": {
-      "type": "npm",
-      "name": "npm:@angular-devkit/core@18.0.7",
-      "data": {
-        "version": "18.0.7",
-        "packageName": "@angular-devkit/core",
-        "hash": "1076935226646466473"
       }
     },
     "npm:@angular-devkit/schematics": {
@@ -1771,15 +1753,6 @@
         "hash": "4117509580196310868"
       }
     },
-    "npm:ajv@8.13.0": {
-      "type": "npm",
-      "name": "npm:ajv@8.13.0",
-      "data": {
-        "version": "8.13.0",
-        "packageName": "ajv",
-        "hash": "15914939150901737424"
-      }
-    },
     "npm:globals@14.0.0": {
       "type": "npm",
       "name": "npm:globals@14.0.0",
@@ -2878,15 +2851,6 @@
         "hash": "15992538221425188230"
       }
     },
-    "npm:jsonc-parser@3.2.1": {
-      "type": "npm",
-      "name": "npm:jsonc-parser@3.2.1",
-      "data": {
-        "version": "3.2.1",
-        "packageName": "jsonc-parser",
-        "hash": "13790765319242254216"
-      }
-    },
     "npm:jsonc-parser": {
       "type": "npm",
       "name": "npm:jsonc-parser",
@@ -3155,15 +3119,6 @@
         "version": "12.2.0",
         "packageName": "globby",
         "hash": "12395056705578488419"
-      }
-    },
-    "npm:globby@6.1.0": {
-      "type": "npm",
-      "name": "npm:globby@6.1.0",
-      "data": {
-        "version": "6.1.0",
-        "packageName": "globby",
-        "hash": "6981180532905446173"
       }
     },
     "npm:globby": {
@@ -4345,15 +4300,6 @@
         "hash": "20043603451659317"
       }
     },
-    "npm:angular-cli-ghpages": {
-      "type": "npm",
-      "name": "npm:angular-cli-ghpages",
-      "data": {
-        "version": "2.0.3",
-        "packageName": "angular-cli-ghpages",
-        "hash": "9179919984053227494"
-      }
-    },
     "npm:ansi-colors": {
       "type": "npm",
       "name": "npm:ansi-colors",
@@ -4469,24 +4415,6 @@
         "version": "3.0.1",
         "packageName": "array-union",
         "hash": "6848578427172356554"
-      }
-    },
-    "npm:array-union@1.0.2": {
-      "type": "npm",
-      "name": "npm:array-union@1.0.2",
-      "data": {
-        "version": "1.0.2",
-        "packageName": "array-union",
-        "hash": "2719798242699522510"
-      }
-    },
-    "npm:array-uniq": {
-      "type": "npm",
-      "name": "npm:array-uniq",
-      "data": {
-        "version": "1.0.3",
-        "packageName": "array-uniq",
-        "hash": "10480003040581319156"
       }
     },
     "npm:async": {
@@ -5371,42 +5299,6 @@
         "hash": "18293656736145768645"
       }
     },
-    "npm:commander": {
-      "type": "npm",
-      "name": "npm:commander",
-      "data": {
-        "version": "3.0.2",
-        "packageName": "commander",
-        "hash": "2695869118215798138"
-      }
-    },
-    "npm:commander@2.20.3": {
-      "type": "npm",
-      "name": "npm:commander@2.20.3",
-      "data": {
-        "version": "2.20.3",
-        "packageName": "commander",
-        "hash": "9579796471062185356"
-      }
-    },
-    "npm:commander@4.1.1": {
-      "type": "npm",
-      "name": "npm:commander@4.1.1",
-      "data": {
-        "version": "4.1.1",
-        "packageName": "commander",
-        "hash": "9109934625348599232"
-      }
-    },
-    "npm:commander@7.2.0": {
-      "type": "npm",
-      "name": "npm:commander@7.2.0",
-      "data": {
-        "version": "7.2.0",
-        "packageName": "commander",
-        "hash": "6083657695124564336"
-      }
-    },
     "npm:common-path-prefix": {
       "type": "npm",
       "name": "npm:common-path-prefix",
@@ -6190,15 +6082,6 @@
         "hash": "688767465172962026"
       }
     },
-    "npm:email-addresses": {
-      "type": "npm",
-      "name": "npm:email-addresses",
-      "data": {
-        "version": "3.1.0",
-        "packageName": "email-addresses",
-        "hash": "6167714176517805921"
-      }
-    },
     "npm:emojis-list": {
       "type": "npm",
       "name": "npm:emojis-list",
@@ -6757,24 +6640,6 @@
         "hash": "887817787910274350"
       }
     },
-    "npm:filename-reserved-regex": {
-      "type": "npm",
-      "name": "npm:filename-reserved-regex",
-      "data": {
-        "version": "2.0.0",
-        "packageName": "filename-reserved-regex",
-        "hash": "5849002462682306430"
-      }
-    },
-    "npm:filenamify": {
-      "type": "npm",
-      "name": "npm:filenamify",
-      "data": {
-        "version": "4.3.0",
-        "packageName": "filenamify",
-        "hash": "14236310373113180686"
-      }
-    },
     "npm:fill-range": {
       "type": "npm",
       "name": "npm:fill-range",
@@ -7036,13 +6901,13 @@
         "hash": "2273405744277176070"
       }
     },
-    "npm:gh-pages": {
+    "npm:glob": {
       "type": "npm",
-      "name": "npm:gh-pages",
+      "name": "npm:glob",
       "data": {
-        "version": "3.2.3",
-        "packageName": "gh-pages",
-        "hash": "17483641168413959720"
+        "version": "10.4.5",
+        "packageName": "glob",
+        "hash": "18195332913017007783"
       }
     },
     "npm:glob@7.2.3": {
@@ -7054,15 +6919,6 @@
         "hash": "17431647228651703072"
       }
     },
-    "npm:glob": {
-      "type": "npm",
-      "name": "npm:glob",
-      "data": {
-        "version": "10.4.5",
-        "packageName": "glob",
-        "hash": "18195332913017007783"
-      }
-    },
     "npm:glob@8.1.0": {
       "type": "npm",
       "name": "npm:glob@8.1.0",
@@ -7070,42 +6926,6 @@
         "version": "8.1.0",
         "packageName": "glob",
         "hash": "12123024576932406181"
-      }
-    },
-    "npm:jsonfile@4.0.0": {
-      "type": "npm",
-      "name": "npm:jsonfile@4.0.0",
-      "data": {
-        "version": "4.0.0",
-        "packageName": "jsonfile",
-        "hash": "6136784231833976350"
-      }
-    },
-    "npm:jsonfile": {
-      "type": "npm",
-      "name": "npm:jsonfile",
-      "data": {
-        "version": "6.1.0",
-        "packageName": "jsonfile",
-        "hash": "6396793526731492461"
-      }
-    },
-    "npm:universalify@0.1.2": {
-      "type": "npm",
-      "name": "npm:universalify@0.1.2",
-      "data": {
-        "version": "0.1.2",
-        "packageName": "universalify",
-        "hash": "5382273425919342756"
-      }
-    },
-    "npm:universalify": {
-      "type": "npm",
-      "name": "npm:universalify",
-      "data": {
-        "version": "2.0.1",
-        "packageName": "universalify",
-        "hash": "9286914573810700852"
       }
     },
     "npm:glob-to-regexp": {
@@ -8078,6 +7898,24 @@
         "version": "2.4.0",
         "packageName": "jsonc-eslint-parser",
         "hash": "9933720646245749541"
+      }
+    },
+    "npm:jsonfile": {
+      "type": "npm",
+      "name": "npm:jsonfile",
+      "data": {
+        "version": "6.1.0",
+        "packageName": "jsonfile",
+        "hash": "6396793526731492461"
+      }
+    },
+    "npm:jsonfile@4.0.0": {
+      "type": "npm",
+      "name": "npm:jsonfile@4.0.0",
+      "data": {
+        "version": "4.0.0",
+        "packageName": "jsonfile",
+        "hash": "6136784231833976350"
       }
     },
     "npm:jsonparse": {
@@ -9358,24 +9196,6 @@
         "hash": "7349976193613736569"
       }
     },
-    "npm:pinkie": {
-      "type": "npm",
-      "name": "npm:pinkie",
-      "data": {
-        "version": "2.0.4",
-        "packageName": "pinkie",
-        "hash": "7563782761540863354"
-      }
-    },
-    "npm:pinkie-promise": {
-      "type": "npm",
-      "name": "npm:pinkie-promise",
-      "data": {
-        "version": "2.0.1",
-        "packageName": "pinkie-promise",
-        "hash": "4995252793643639647"
-      }
-    },
     "npm:pirates": {
       "type": "npm",
       "name": "npm:pirates",
@@ -10564,6 +10384,24 @@
         "hash": "16272679710235503217"
       }
     },
+    "npm:universalify@0.1.2": {
+      "type": "npm",
+      "name": "npm:universalify@0.1.2",
+      "data": {
+        "version": "0.1.2",
+        "packageName": "universalify",
+        "hash": "5382273425919342756"
+      }
+    },
+    "npm:universalify": {
+      "type": "npm",
+      "name": "npm:universalify",
+      "data": {
+        "version": "2.0.1",
+        "packageName": "universalify",
+        "hash": "9286914573810700852"
+      }
+    },
     "npm:string-width-cjs": {
       "type": "npm",
       "name": "npm:string-width-cjs",
@@ -10607,15 +10445,6 @@
         "version": "3.1.1",
         "packageName": "strip-json-comments",
         "hash": "13837124765445779659"
-      }
-    },
-    "npm:strip-outer": {
-      "type": "npm",
-      "name": "npm:strip-outer",
-      "data": {
-        "version": "1.0.1",
-        "packageName": "strip-outer",
-        "hash": "15691991083926597313"
       }
     },
     "npm:strong-log-transformer": {
@@ -10670,6 +10499,33 @@
         "version": "3.35.0",
         "packageName": "sucrase",
         "hash": "12897745380766629544"
+      }
+    },
+    "npm:commander@4.1.1": {
+      "type": "npm",
+      "name": "npm:commander@4.1.1",
+      "data": {
+        "version": "4.1.1",
+        "packageName": "commander",
+        "hash": "9109934625348599232"
+      }
+    },
+    "npm:commander@7.2.0": {
+      "type": "npm",
+      "name": "npm:commander@7.2.0",
+      "data": {
+        "version": "7.2.0",
+        "packageName": "commander",
+        "hash": "6083657695124564336"
+      }
+    },
+    "npm:commander@2.20.3": {
+      "type": "npm",
+      "name": "npm:commander@2.20.3",
+      "data": {
+        "version": "2.20.3",
+        "packageName": "commander",
+        "hash": "9579796471062185356"
       }
     },
     "npm:supports-preserve-symlinks-flag": {
@@ -10841,15 +10697,6 @@
         "version": "1.2.2",
         "packageName": "tree-kill",
         "hash": "616156551214844126"
-      }
-    },
-    "npm:trim-repeated": {
-      "type": "npm",
-      "name": "npm:trim-repeated",
-      "data": {
-        "version": "1.0.0",
-        "packageName": "trim-repeated",
-        "hash": "13836896123502600030"
       }
     },
     "npm:ts-api-utils": {
@@ -18228,109 +18075,6 @@
         "type": "static"
       }
     ],
-    "npm:angular-cli-ghpages": [
-      {
-        "source": "npm:angular-cli-ghpages",
-        "target": "npm:@angular-devkit/architect@0.1800.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:angular-cli-ghpages",
-        "target": "npm:@angular-devkit/core@18.0.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:angular-cli-ghpages",
-        "target": "npm:@angular-devkit/schematics",
-        "type": "static"
-      },
-      {
-        "source": "npm:angular-cli-ghpages",
-        "target": "npm:commander",
-        "type": "static"
-      },
-      {
-        "source": "npm:angular-cli-ghpages",
-        "target": "npm:fs-extra",
-        "type": "static"
-      },
-      {
-        "source": "npm:angular-cli-ghpages",
-        "target": "npm:gh-pages",
-        "type": "static"
-      }
-    ],
-    "npm:@angular-devkit/architect@0.1800.7": [
-      {
-        "source": "npm:@angular-devkit/architect@0.1800.7",
-        "target": "npm:@angular-devkit/core@18.0.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:@angular-devkit/architect@0.1800.7",
-        "target": "npm:rxjs",
-        "type": "static"
-      }
-    ],
-    "npm:@angular-devkit/core@18.0.7": [
-      {
-        "source": "npm:@angular-devkit/core@18.0.7",
-        "target": "npm:chokidar",
-        "type": "static"
-      },
-      {
-        "source": "npm:@angular-devkit/core@18.0.7",
-        "target": "npm:ajv@8.13.0",
-        "type": "static"
-      },
-      {
-        "source": "npm:@angular-devkit/core@18.0.7",
-        "target": "npm:ajv-formats",
-        "type": "static"
-      },
-      {
-        "source": "npm:@angular-devkit/core@18.0.7",
-        "target": "npm:jsonc-parser@3.2.1",
-        "type": "static"
-      },
-      {
-        "source": "npm:@angular-devkit/core@18.0.7",
-        "target": "npm:picomatch",
-        "type": "static"
-      },
-      {
-        "source": "npm:@angular-devkit/core@18.0.7",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "npm:@angular-devkit/core@18.0.7",
-        "target": "npm:source-map",
-        "type": "static"
-      }
-    ],
-    "npm:ajv@8.13.0": [
-      {
-        "source": "npm:ajv@8.13.0",
-        "target": "npm:fast-deep-equal",
-        "type": "static"
-      },
-      {
-        "source": "npm:ajv@8.13.0",
-        "target": "npm:json-schema-traverse",
-        "type": "static"
-      },
-      {
-        "source": "npm:ajv@8.13.0",
-        "target": "npm:require-from-string",
-        "type": "static"
-      },
-      {
-        "source": "npm:ajv@8.13.0",
-        "target": "npm:uri-js",
-        "type": "static"
-      }
-    ],
     "npm:ansi-escapes": [
       {
         "source": "npm:ansi-escapes",
@@ -20537,23 +20281,6 @@
         "type": "static"
       }
     ],
-    "npm:filenamify": [
-      {
-        "source": "npm:filenamify",
-        "target": "npm:filename-reserved-regex",
-        "type": "static"
-      },
-      {
-        "source": "npm:filenamify",
-        "target": "npm:strip-outer",
-        "type": "static"
-      },
-      {
-        "source": "npm:filenamify",
-        "target": "npm:trim-repeated",
-        "type": "static"
-      }
-    ],
     "npm:fill-range": [
       {
         "source": "npm:fill-range",
@@ -20887,133 +20614,6 @@
       {
         "source": "npm:get-proto",
         "target": "npm:es-object-atoms",
-        "type": "static"
-      }
-    ],
-    "npm:gh-pages": [
-      {
-        "source": "npm:gh-pages",
-        "target": "npm:async",
-        "type": "static"
-      },
-      {
-        "source": "npm:gh-pages",
-        "target": "npm:commander@2.20.3",
-        "type": "static"
-      },
-      {
-        "source": "npm:gh-pages",
-        "target": "npm:email-addresses",
-        "type": "static"
-      },
-      {
-        "source": "npm:gh-pages",
-        "target": "npm:filenamify",
-        "type": "static"
-      },
-      {
-        "source": "npm:gh-pages",
-        "target": "npm:find-cache-dir",
-        "type": "static"
-      },
-      {
-        "source": "npm:gh-pages",
-        "target": "npm:fs-extra@8.1.0",
-        "type": "static"
-      },
-      {
-        "source": "npm:gh-pages",
-        "target": "npm:globby@6.1.0",
-        "type": "static"
-      }
-    ],
-    "npm:array-union@1.0.2": [
-      {
-        "source": "npm:array-union@1.0.2",
-        "target": "npm:array-uniq",
-        "type": "static"
-      }
-    ],
-    "npm:fs-extra@8.1.0": [
-      {
-        "source": "npm:fs-extra@8.1.0",
-        "target": "npm:graceful-fs",
-        "type": "static"
-      },
-      {
-        "source": "npm:fs-extra@8.1.0",
-        "target": "npm:jsonfile@4.0.0",
-        "type": "static"
-      },
-      {
-        "source": "npm:fs-extra@8.1.0",
-        "target": "npm:universalify@0.1.2",
-        "type": "static"
-      }
-    ],
-    "npm:glob@7.2.3": [
-      {
-        "source": "npm:glob@7.2.3",
-        "target": "npm:fs.realpath",
-        "type": "static"
-      },
-      {
-        "source": "npm:glob@7.2.3",
-        "target": "npm:inflight",
-        "type": "static"
-      },
-      {
-        "source": "npm:glob@7.2.3",
-        "target": "npm:inherits",
-        "type": "static"
-      },
-      {
-        "source": "npm:glob@7.2.3",
-        "target": "npm:minimatch@3.1.2",
-        "type": "static"
-      },
-      {
-        "source": "npm:glob@7.2.3",
-        "target": "npm:once",
-        "type": "static"
-      },
-      {
-        "source": "npm:glob@7.2.3",
-        "target": "npm:path-is-absolute",
-        "type": "static"
-      }
-    ],
-    "npm:globby@6.1.0": [
-      {
-        "source": "npm:globby@6.1.0",
-        "target": "npm:array-union@1.0.2",
-        "type": "static"
-      },
-      {
-        "source": "npm:globby@6.1.0",
-        "target": "npm:glob@7.2.3",
-        "type": "static"
-      },
-      {
-        "source": "npm:globby@6.1.0",
-        "target": "npm:object-assign",
-        "type": "static"
-      },
-      {
-        "source": "npm:globby@6.1.0",
-        "target": "npm:pify",
-        "type": "static"
-      },
-      {
-        "source": "npm:globby@6.1.0",
-        "target": "npm:pinkie-promise",
-        "type": "static"
-      }
-    ],
-    "npm:jsonfile@4.0.0": [
-      {
-        "source": "npm:jsonfile@4.0.0",
-        "target": "npm:graceful-fs",
         "type": "static"
       }
     ],
@@ -22104,6 +21704,38 @@
       {
         "source": "npm:cliui@7.0.4",
         "target": "npm:wrap-ansi@7.0.0",
+        "type": "static"
+      }
+    ],
+    "npm:glob@7.2.3": [
+      {
+        "source": "npm:glob@7.2.3",
+        "target": "npm:fs.realpath",
+        "type": "static"
+      },
+      {
+        "source": "npm:glob@7.2.3",
+        "target": "npm:inflight",
+        "type": "static"
+      },
+      {
+        "source": "npm:glob@7.2.3",
+        "target": "npm:inherits",
+        "type": "static"
+      },
+      {
+        "source": "npm:glob@7.2.3",
+        "target": "npm:minimatch@3.1.2",
+        "type": "static"
+      },
+      {
+        "source": "npm:glob@7.2.3",
+        "target": "npm:once",
+        "type": "static"
+      },
+      {
+        "source": "npm:glob@7.2.3",
+        "target": "npm:path-is-absolute",
         "type": "static"
       }
     ],
@@ -23633,13 +23265,6 @@
       {
         "source": "npm:path-scurry",
         "target": "npm:minipass",
-        "type": "static"
-      }
-    ],
-    "npm:pinkie-promise": [
-      {
-        "source": "npm:pinkie-promise",
-        "target": "npm:pinkie",
         "type": "static"
       }
     ],
@@ -25273,6 +24898,30 @@
         "type": "static"
       }
     ],
+    "npm:fs-extra@8.1.0": [
+      {
+        "source": "npm:fs-extra@8.1.0",
+        "target": "npm:graceful-fs",
+        "type": "static"
+      },
+      {
+        "source": "npm:fs-extra@8.1.0",
+        "target": "npm:jsonfile@4.0.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:fs-extra@8.1.0",
+        "target": "npm:universalify@0.1.2",
+        "type": "static"
+      }
+    ],
+    "npm:jsonfile@4.0.0": [
+      {
+        "source": "npm:jsonfile@4.0.0",
+        "target": "npm:graceful-fs",
+        "type": "static"
+      }
+    ],
     "npm:string_decoder": [
       {
         "source": "npm:string_decoder",
@@ -25325,13 +24974,6 @@
       {
         "source": "npm:strip-ansi-cjs",
         "target": "npm:ansi-regex",
-        "type": "static"
-      }
-    ],
-    "npm:strip-outer": [
-      {
-        "source": "npm:strip-outer",
-        "target": "npm:escape-string-regexp@1.0.5",
         "type": "static"
       }
     ],
@@ -25809,13 +25451,6 @@
       {
         "source": "npm:tree-dump",
         "target": "npm:tslib",
-        "type": "static"
-      }
-    ],
-    "npm:trim-repeated": [
-      {
-        "source": "npm:trim-repeated",
-        "target": "npm:escape-string-regexp@1.0.5",
         "type": "static"
       }
     ],
