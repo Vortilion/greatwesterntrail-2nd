@@ -1,0 +1,26 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  class="example-icon favorite-icon"
+  aria-label="Language Selection"
+>
+  <mat-icon>translate</mat-icon>
+</button>
+<span>{{ activeLang + '-language-label' | transloco }}</span>
+<mat-menu #menu="matMenu">
+  <button
+    *ngFor="let lang of availableLangs"
+    mat-menu-item
+    (click)="changeLanguage(lang)"
+    [ngClass]="{ active: activeLang === lang }"
+  >
+    <mat-icon
+      [ngStyle]="{ color: activeLang === lang ? 'rgb(255 143 0)' : '' }"
+    >
+      language
+    </mat-icon>
+    <span [ngStyle]="{ color: activeLang === lang ? 'rgb(255 143 0)' : '' }">
+      {{ lang + '-language-label' | transloco }}
+    </span>
+  </button>
+</mat-menu>

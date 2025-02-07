@@ -1,0 +1,249 @@
+<ng-container *transloco="let t">
+  <div class="home-component flex flex-col" [class.is-mobile]="isXSmall">
+    <app-page-header [sidebarHandle]="sidenav"> </app-page-header>
+
+    <mat-sidenav-container
+      class="sidenav-container flex-1"
+      [style.paddingTop.px]="isXSmall ? 56 : 0"
+    >
+      <mat-sidenav
+        class="sidenav"
+        #sidenav
+        [mode]="isXSmall ? 'over' : 'side'"
+        [fixedInViewport]="isXSmall"
+        fixedTopGap="56"
+        [opened]="isXSmall ? 'false' : 'opened'"
+      >
+        <div class="sidenav__inner p-4">
+          <h2>{{ t("options-label") }}:</h2>
+          <mat-divider class="divider mb-4"></mat-divider>
+
+          <h3>{{ t("player-count-label") }}:</h3>
+          <mat-form-field appearance="fill">
+            <mat-label>{{ t("player-count-select-label") }}</mat-label>
+            <mat-select
+              [value]="playerCount"
+              (selectionChange)="onPlayerCountChange($event)"
+            >
+              <mat-option
+                *ngFor="let playerCount of playerCountList"
+                [value]="playerCount.value"
+              >
+                {{ playerCount.label }} <span>{{ t("players-label") }}</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <h3>{{ t("variant-label") }}:</h3>
+          <div class="options-list">
+            <mat-slide-toggle
+              class="options-list__option"
+              color="primary"
+              name="useSimmental"
+              [checked]="useSimmental"
+              (change)="onVariantChange($event)"
+            >
+              {{ t("variant-simmental") }}
+            </mat-slide-toggle>
+          </div>
+        </div>
+      </mat-sidenav>
+
+      <mat-sidenav-content>
+        <div class="sidenav-content flex flex-col min-h-full">
+          <div class="flex-1 px-2 xSmall:px-10 py-5">
+            <div class="mb-4">
+              <button
+                [class]="{ 'w-full': isXSmall }"
+                mat-flat-button
+                color="primary"
+                (click)="randomizeSetup()"
+              >
+                <span>{{ t("btn-setup-label") }}</span>
+              </button>
+            </div>
+            <mat-grid-list
+              [cols]="isMax1280 ? 1 : 2"
+              rowHeight="180px"
+              gutterSize="5px"
+            >
+              <mat-grid-tile *ngIf="randomNeutralBuildings.length > 0">
+                <mat-grid-tile-header>
+                  <h3>
+                    <span>{{ t("neutral-buildings-label") }}</span
+                    >:
+                  </h3>
+                </mat-grid-tile-header>
+                <ul class="flex">
+                  <li
+                    *ngFor="let neutralBuilding of randomNeutralBuildings"
+                    class="px-2 text-2xl xSmall:text-xl"
+                  >
+                    <span>{{ neutralBuilding.title }}</span>
+                  </li>
+                </ul>
+              </mat-grid-tile>
+              <mat-grid-tile
+                *ngIf="randomStationMasters && randomStationMasters.length > 0"
+              >
+                <mat-grid-tile-header>
+                  <h3>
+                    <span>{{ t("station-masters-label") }}</span
+                    >:
+                  </h3>
+                </mat-grid-tile-header>
+                <div class="flex">
+                  <div *ngFor="let randomStationMaster of randomStationMasters">
+                    <img
+                      class="px-1 xSmall:px-2 md:px-4"
+                      [src]="randomStationMaster.sides[0].image"
+                      alt="Station Master"
+                    />
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <mat-grid-tile-header>
+                  <h3>
+                    <span>{{ t("player-buildings-label") }}</span
+                    >:
+                  </h3>
+                </mat-grid-tile-header>
+                <div class="flex flex-wrap">
+                  <span
+                    *ngFor="let randomPlayerBuilding of randomPlayerBuildings"
+                    class="px-2 text-2xl xSmall:text-xl flex-1"
+                  >
+                    <span class="whitespace-nowrap"
+                      >{{ randomPlayerBuilding.title
+                      }}{{ randomPlayerBuilding.sides[0].title }}
+                    </span>
+                  </span>
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-card>
+              <mat-card-header>
+                <h3>
+                  <span>{{ t("further-setup-steps-label") }}</span>
+                </h3>
+              </mat-card-header>
+              <mat-card-content>
+                <ol class="pl-4 list-decimal">
+                  <li>
+                    {{ t("further-steps-step1") }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>
+                        {{ t("further-steps-step1a") }}
+                      </li>
+                      <li>
+                        {{ t("further-steps-step1b") }}
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    {{ t("further-steps-step2") }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>
+                        {{ t("further-steps-step21") }}
+                      </li>
+                      <li>
+                        {{ t("further-steps-step22") }}
+                      </li>
+                      <li>
+                        {{ t("further-steps-step23") }}
+                      </li>
+                      <li>
+                        {{ t("further-steps-step24") }}
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    {{ t("further-steps-step3") }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>
+                        {{ t("further-steps-step31") }}
+                      </li>
+                      <li>
+                        {{ t("further-steps-step32") }}
+                      </li>
+                      <li>
+                        {{ t("further-steps-step33") }}
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <ng-container *ngIf="useSimmental; else no_simmental">{{
+                      t("further-steps-step4_simmental")
+                    }}</ng-container>
+
+                    <ng-template #no_simmental>{{
+                      t("further-steps-step4")
+                    }}</ng-template>
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li *ngIf="playerCount === 2">
+                        <ng-container
+                          *ngIf="useSimmental; else no_simmental_2p"
+                          >{{
+                            t("further-steps-step41_simmental")
+                          }}</ng-container
+                        >
+                        <ng-template #no_simmental_2p>{{
+                          t("further-steps-step41")
+                        }}</ng-template>
+                      </li>
+                      <li *ngIf="playerCount === 3">
+                        <ng-container
+                          *ngIf="useSimmental; else no_simmental_3p"
+                          >{{
+                            t("further-steps-step42_simmental")
+                          }}</ng-container
+                        >
+                        <ng-template #no_simmental_3p>{{
+                          t("further-steps-step42")
+                        }}</ng-template>
+                      </li>
+                      <li *ngIf="playerCount === 4">
+                        <ng-container
+                          *ngIf="useSimmental; else no_simmental_4p"
+                          >{{
+                            t("further-steps-step43_simmental")
+                          }}</ng-container
+                        >
+                        <ng-template #no_simmental_4p>{{
+                          t("further-steps-step43")
+                        }}</ng-template>
+                      </li>
+                    </ul>
+                  </li>
+                  <li *ngIf="useSimmental">
+                    {{ t("further-steps-simmental2") }}
+                  </li>
+                  <li *ngIf="useSimmental">
+                    {{ t("further-steps-simmental3") }}
+                  </li>
+                  <li>{{ t("further-steps-step5") }}</li>
+                  <li>
+                    {{ t("further-steps-step6") }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>{{ t("further-steps-step61") }}</li>
+                      <li>{{ t("further-steps-step62") }}</li>
+                      <li *ngIf="playerCount >= 3">
+                        {{ t("further-steps-step63") }}
+                      </li>
+                      <li *ngIf="playerCount > 3">
+                        {{ t("further-steps-step64") }}
+                      </li>
+                    </ul>
+                  </li>
+                </ol>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <app-page-footer />
+  </div>
+</ng-container>
