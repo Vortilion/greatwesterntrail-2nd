@@ -2,7 +2,7 @@ name: Build & Deploy to pages
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
 
 permissions:
   contents: write
@@ -30,10 +30,10 @@ jobs:
       - name: Build Angular app
         run: |
           npm ci
-          npm run build:gh-pages
+          npm run build:prod
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           BRANCH: gh-pages
-          FOLDER: dist/apps/gwt-2nd_randomizer
+          FOLDER: dist/browser

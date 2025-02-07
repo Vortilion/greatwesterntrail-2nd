@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./apps/gwt-2nd_randomizer/src/**/*.{html,ts}'],
+  content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
       screens: {
-        xSmall: '600px',
+        xSmall: "600px",
       },
     },
   },
