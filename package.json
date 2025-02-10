@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href=https://vortilion.github.io/greatwesterntrail-2nd/",
+    "copy-index-to-404": "cp dist/browser/index.html public/404.html",
+    "build-and-copy-index": "npm run build && npm run copy-index-to-404",
+    "build:prod": "ng build --configuration production --base-href=https://vortilion.github.io/greatwesterntrail-2nd/ && npm run copy-index-to-404",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
