@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1741878988350,
+  "timestamp": 1741879365943,
   "index": "https://vortilion.github.io/greatwesterntrail-2nd/index.html",
   "assetGroups": [
     {
@@ -73,7 +73,7 @@
     "https://vortilion.github.io/greatwesterntrail-2nd/img/station-master-09.png": "4d5b1a0880aec27148b3b3e438e62a81d43fcda5",
     "https://vortilion.github.io/greatwesterntrail-2nd/index.html": "48a06218ba086714e8130da406253162e1e02a07",
     "https://vortilion.github.io/greatwesterntrail-2nd/main-MTQLEC2B.js": "0ea767d9248ad6cf0ae74505b2209bb00c5ba350",
-    "https://vortilion.github.io/greatwesterntrail-2nd/manifest.webmanifest": "5f2a9e377e04c01db1135cd4255153cedcfb0399",
+    "https://vortilion.github.io/greatwesterntrail-2nd/manifest.webmanifest": "a1f07e13035ef2a44e7672e82b4bd32809a4fa24",
     "https://vortilion.github.io/greatwesterntrail-2nd/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
     "https://vortilion.github.io/greatwesterntrail-2nd/styles-6K73V73O.css": "cb867749e70a8b6af022ccc1d5619982c9e84b1b"
   },
