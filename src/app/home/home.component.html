@@ -35,15 +35,40 @@
           </mat-form-field>
 
           <h3>{{ t("variant-label") }}:</h3>
-          <div class="options-list">
+          <div class="options-list space-y-2 mb-4">
             <mat-slide-toggle
               class="options-list__option"
               color="primary"
               name="useSimmental"
+              [(ngModel)]="useSimmental"
               [checked]="useSimmental"
-              (change)="onVariantChange($event)"
+              (change)="onVariantChange('useSimmental', $event)"
             >
               {{ t("variant-simmental") }}
+            </mat-slide-toggle>
+
+            <mat-slide-toggle
+              class="options-list__option"
+              color="primary"
+              name="useBrahman"
+              [(ngModel)]="useBrahman"
+              [checked]="useBrahman"
+              (change)="onVariantChange('useBrahman', $event)"
+            >
+              {{ t("variant-brahman") }}
+            </mat-slide-toggle>
+          </div>
+
+          <h3>{{ t("expansion-label") }}:</h3>
+          <div class="options-list space-y-2">
+            <mat-slide-toggle
+              class="options-list__option"
+              color="primary"
+              name="useRailsToTheNorth"
+              [checked]="useRailsToTheNorth"
+              (change)="onExpansionChange($event)"
+            >
+              {{ t("expansion-rails") }}
             </mat-slide-toggle>
           </div>
         </div>
@@ -174,19 +199,26 @@
                     </ul>
                   </li>
                   <li>
-                    <ng-container *ngIf="useSimmental; else no_simmental">{{
+                    <ng-container *ngIf="useSimmental && !useBrahman">{{
                       t("further-steps-step4_simmental")
                     }}</ng-container>
 
-                    <ng-template #no_simmental>{{
+                    <ng-container *ngIf="useBrahman && !useSimmental">{{
+                      t("further-steps-step4_brahman")
+                    }}</ng-container>
+
+                    <ng-container *ngIf="!(useBrahman || useSimmental)">{{
                       t("further-steps-step4")
-                    }}</ng-template>
+                    }}</ng-container>
                     <ul class="list-disc pl-8 text-gray-400">
                       <li *ngIf="playerCount === 2">
                         <ng-container
-                          *ngIf="useSimmental; else no_simmental_2p"
+                          *ngIf="
+                            useSimmental || useBrahman;
+                            else no_simmental_2p
+                          "
                           >{{
-                            t("further-steps-step41_simmental")
+                            t("further-steps-step41_simmental_brahman")
                           }}</ng-container
                         >
                         <ng-template #no_simmental_2p>{{
@@ -195,9 +227,12 @@
                       </li>
                       <li *ngIf="playerCount === 3">
                         <ng-container
-                          *ngIf="useSimmental; else no_simmental_3p"
+                          *ngIf="
+                            useSimmental || useBrahman;
+                            else no_simmental_3p
+                          "
                           >{{
-                            t("further-steps-step42_simmental")
+                            t("further-steps-step42_simmental_brahman")
                           }}</ng-container
                         >
                         <ng-template #no_simmental_3p>{{
@@ -206,24 +241,33 @@
                       </li>
                       <li *ngIf="playerCount === 4">
                         <ng-container
-                          *ngIf="useSimmental; else no_simmental_4p"
+                          *ngIf="
+                            useSimmental || useBrahman;
+                            else no_simmental_4p
+                          "
                           >{{
-                            t("further-steps-step43_simmental")
+                            t("further-steps-step43_simmental_brahman")
                           }}</ng-container
                         >
                         <ng-template #no_simmental_4p>{{
                           t("further-steps-step43")
                         }}</ng-template>
                       </li>
+                      <li *ngIf="useSimmental">
+                        {{ t("further-steps-simmental2") }}
+                      </li>
+                      <li *ngIf="useSimmental">
+                        {{ t("further-steps-simmental3") }}
+                      </li>
+                      <li *ngIf="useBrahman">
+                        {{ t("further-steps-brahman") }}
+                      </li>
                     </ul>
                   </li>
-                  <li *ngIf="useSimmental">
-                    {{ t("further-steps-simmental2") }}
+
+                  <li *ngIf="!useRailsToTheNorth">
+                    {{ t("further-steps-step5") }}
                   </li>
-                  <li *ngIf="useSimmental">
-                    {{ t("further-steps-simmental3") }}
-                  </li>
-                  <li>{{ t("further-steps-step5") }}</li>
                   <li>
                     {{ t("further-steps-step6") }}
                     <ul class="list-disc pl-8 text-gray-400">
@@ -234,6 +278,39 @@
                       </li>
                       <li *ngIf="playerCount > 3">
                         {{ t("further-steps-step64") }}
+                      </li>
+                    </ul>
+                  </li>
+                  <li *ngIf="useRailsToTheNorth">
+                    {{ t("further-steps-step7") }}
+                  </li>
+                  <li *ngIf="useRailsToTheNorth">
+                    {{ t("further-steps-step8") }}
+                  </li>
+                  <li *ngIf="useRailsToTheNorth">
+                    {{ t("further-steps-step9") }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>{{ t("further-steps-step91") }}</li>
+                      <li>{{ t("further-steps-step92") }}</li>
+                      <li>{{ t("further-steps-step93") }}</li>
+                    </ul>
+                  </li>
+                  <li *ngIf="useRailsToTheNorth">
+                    {{ t("further-steps-step10") }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>{{ t("further-steps-step101") }}</li>
+                      <li>{{ t("further-steps-step102") }}</li>
+                      <li>{{ t("further-steps-step103") }}</li>
+                      <li>{{ t("further-steps-step104") }}</li>
+                    </ul>
+                  </li>
+                  <li *ngIf="useRailsToTheNorth">
+                    {{ t("further-steps-step11") }}
+                    <ul class="list-disc pl-8 text-gray-400">
+                      <li>{{ t("further-steps-step11_1") }}</li>
+                      <li>{{ t("further-steps-step11_2") }}</li>
+                      <li *ngIf="useSimmental">
+                        {{ t("further-steps-step11_3") }}
                       </li>
                     </ul>
                   </li>

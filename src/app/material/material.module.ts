@@ -14,6 +14,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   exports: [
@@ -32,6 +33,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatMenuModule,
     MatGridListModule,
     MatTreeModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}

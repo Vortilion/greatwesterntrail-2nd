@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import {
   ServiceWorkerModule,
   SwUpdate,
@@ -22,21 +21,20 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LanguageSelectorComponent,
-    PageHeaderComponent,
-    PageFooterComponent,
-  ],
   imports: [
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
     TranslocoRootModule,
+    HomeComponent,
+    LanguageSelectorComponent,
+    PageHeaderComponent,
+    PageFooterComponent,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -48,20 +46,19 @@ import {
     provideAnimationsAsync(),
     provideHttpClient(withInterceptorsFromDi()),
   ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(
     swUpdate: SwUpdate,
     snackbar: MatSnackBar,
-    translocoService: TranslocoService
+    translocoService: TranslocoService,
   ) {
     swUpdate.unrecoverable.subscribe((event) => {
       const snackError = snackbar.open(
         'An error occurred that we cannot recover from:\n' +
           event.reason +
           '\n\nPlease reload the page.',
-        'Reload'
+        'Reload',
       );
 
       snackError.onAction().subscribe(() => {
@@ -71,20 +68,20 @@ export class AppModule {
       console.debug(
         'An error occurred that we cannot recover from:\n' +
           event.reason +
-          '\n\nPlease reload the page.'
+          '\n\nPlease reload the page.',
       );
     });
 
     swUpdate.versionUpdates
       .pipe(
         filter(
-          (evt): evt is VersionDetectedEvent => evt.type === 'VERSION_DETECTED'
-        )
+          (evt): evt is VersionDetectedEvent => evt.type === 'VERSION_DETECTED',
+        ),
       )
       .subscribe(() => {
         const snack = snackbar.open(
           translocoService.translate('messages.update-available'),
-          'Reload'
+          'Reload',
         );
 
         snack.onAction().subscribe(() => {

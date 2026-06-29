@@ -1,15 +1,46 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSelectModule, MatSelectChange } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {
+  MatSlideToggleChange,
+  MatSlideToggleModule,
+} from '@angular/material/slide-toggle';
+import { StorageMap } from '@ngx-pwa/local-storage';
+import { TranslocoModule } from '@jsverse/transloco';
 import { ApplicationConfigService } from '../shared/application-config.service';
 import { Tile } from '../models/tile.model';
-import { StorageMap } from '@ngx-pwa/local-storage';
 import { PlayerCountOption } from '../models/player-count-option.model';
-import { MatSelectChange } from '@angular/material/select';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { VariantWarningDialogComponent } from '../variant-warning-modal/variant-warning-dialog.component';
+import { PageHeaderComponent } from '../page-header/page-header.component';
+import { PageFooterComponent } from '../page-footer/page-footer.component';
 
 @Component({
   selector: 'app-home',
-  standalone: false,
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    TranslocoModule,
+    PageHeaderComponent,
+    PageFooterComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
@@ -22,12 +53,12 @@ export class HomeComponent implements OnInit {
   isXSmall!: boolean;
   isMax1280!: boolean;
   useSimmental!: boolean;
-
-  constructor(
-    private applicationConfigService: ApplicationConfigService,
-    private responsive: BreakpointObserver,
-    private storage: StorageMap
-  ) {}
+  useBrahman!: boolean;
+  useRailsToTheNorth!: boolean;
+  readonly dialog = inject(MatDialog);
+  private applicationConfigService = inject(ApplicationConfigService);
+  private responsive = inject(BreakpointObserver);
+  private storage = inject(StorageMap);
 
   ngOnInit(): void {
     this.playerCount = 2;
@@ -47,6 +78,8 @@ export class HomeComponent implements OnInit {
     ];
 
     this.useSimmental = false;
+    this.useRailsToTheNorth = false;
+    this.useBrahman = false;
 
     this.responsive.observe(Breakpoints.XSmall).subscribe((result) => {
       if (result.matches) {
@@ -65,44 +98,132 @@ export class HomeComponent implements OnInit {
     });
 
     this.storage.get('rar-playerCount').subscribe((playerCount) => {
-      playerCount && typeof playerCount === 'number'
-        ? this.emitPlayerCount(playerCount)
-        : this.storage.set('rar-playerCount', 2).subscribe(() => {});
+      if (playerCount && typeof playerCount === 'number') {
+        this.emitPlayerCount(playerCount);
+      } else {
+        this.storage.set('rar-playerCount', 2);
+      }
     });
 
     this.storage.get('rar-useSimmental').subscribe((useSimmental) => {
-      useSimmental !== undefined && typeof useSimmental === 'boolean'
-        ? this.applicationConfigService.useSimmental.emit(useSimmental)
-        : this.storage.set('rar-useSimmental', false).subscribe(() => {});
+      if (
+        this.useSimmental !== undefined &&
+        typeof useSimmental === 'boolean'
+      ) {
+        this.applicationConfigService.useVariant.emit({
+          name: 'useSimmental',
+          checked: useSimmental,
+        });
+      } else {
+        this.storage.set('rar-useSimmental', false);
+      }
     });
+
+    this.storage.get('rar-useBrahman').subscribe((useBrahman) => {
+      if (this.useSimmental !== undefined && typeof useBrahman === 'boolean') {
+        this.applicationConfigService.useVariant.emit({
+          name: 'useBrahman',
+          checked: useBrahman,
+        });
+      } else {
+        this.storage.set('rar-useBrahman', false);
+      }
+    });
+
+    this.storage
+      .get('rar-useRailsToTheNorth')
+      .subscribe((useRailsToTheNorth) => {
+        if (
+          useRailsToTheNorth !== undefined &&
+          typeof useRailsToTheNorth === 'boolean'
+        ) {
+          this.applicationConfigService.useRailsToTheNorth.emit(
+            useRailsToTheNorth,
+          );
+        } else {
+          this.storage.set('rar-useRailsToTheNorth', false);
+        }
+      });
 
     this.applicationConfigService.playerCount.subscribe(
       (playerCount: number) => {
         this.playerCount = playerCount;
-      }
+      },
     );
 
-    this.applicationConfigService.useSimmental.subscribe(
-      (useSimmental: boolean) => {
-        this.useSimmental = useSimmental;
+    this.applicationConfigService.useVariant.subscribe((event) => {
+      if (event.name === 'useSimmental') {
+        this.useSimmental = event.checked;
+      } else if (event.name === 'useBrahman') {
+        this.useBrahman = event.checked;
       }
+    });
+
+    this.applicationConfigService.useRailsToTheNorth.subscribe(
+      (useRailsToTheNorth: boolean) => {
+        this.useRailsToTheNorth = useRailsToTheNorth;
+      },
     );
 
     this.randomizeSetup();
   }
 
-  emitPlayerCount(playerCount: any) {
+  openDialog() {
+    return this.dialog.open(VariantWarningDialogComponent, {});
+  }
+
+  emitPlayerCount(playerCount: number) {
     this.applicationConfigService.playerCount.emit(playerCount);
   }
 
   onPlayerCountChange(event: MatSelectChange) {
-    this.storage.set('rar-playerCount', event.value).subscribe(() => {});
+    this.storage.set('rar-playerCount', event.value);
     this.emitPlayerCount(event.value);
   }
 
-  onVariantChange(event: MatSlideToggleChange) {
-    this.storage.set('rar-useSimmental', event.checked).subscribe(() => {});
-    this.applicationConfigService.useSimmental.emit(event.checked);
+  resetVariants() {
+    const dialogRef = this.openDialog();
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.storage.set('rar-useSimmental', false).subscribe(() => {
+        this.useSimmental = false;
+      });
+
+      this.applicationConfigService.useVariant.emit({
+        name: 'useSimmental',
+        checked: false,
+      });
+
+      this.storage.set('rar-useBrahman', false).subscribe(() => {
+        this.useBrahman = false;
+      });
+
+      this.applicationConfigService.useVariant.emit({
+        name: 'useBrahman',
+        checked: false,
+      });
+    });
+  }
+
+  onVariantChange(name: string, event: MatSlideToggleChange) {
+    if (
+      (this.useBrahman && name === 'useSimmental' && event.checked) ||
+      (this.useSimmental && name === 'useBrahman' && event.checked)
+    ) {
+      this.resetVariants();
+    } else {
+      this.storage.set(`rar-${event.source.name}`, event.checked);
+
+      this.applicationConfigService.useVariant.emit({
+        name: name,
+        checked: event.checked,
+      });
+    }
+  }
+
+  onExpansionChange(event: MatSlideToggleChange) {
+    this.storage.set('rar-useRailsToTheNorth', event.checked);
+    this.applicationConfigService.useRailsToTheNorth.emit(event.checked);
   }
 
   randomizeSetup() {

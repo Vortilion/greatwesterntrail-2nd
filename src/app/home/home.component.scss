@@ -7,3 +7,7 @@
 .divider {
   margin-bottom: 16px !important;
 }
+
+.options-list {
+  @apply flex flex-col;
+}

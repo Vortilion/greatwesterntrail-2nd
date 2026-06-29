@@ -5,8 +5,8 @@ import { Tile } from '../models/tile.model';
   providedIn: 'root',
 })
 export class ApplicationConfigService {
-  useSimmental = new EventEmitter<boolean>();
-
+  useVariant = new EventEmitter<{ name: string; checked: boolean }>();
+  useRailsToTheNorth = new EventEmitter<boolean>();
   playerCount = new EventEmitter<number>();
   neutralBuildings: Tile[] = [
     {
@@ -281,8 +281,8 @@ export class ApplicationConfigService {
   }
 
   getRandomStationMasters(): Tile[] {
-    let selection: Tile[] = [];
-    let shuffledStationMasters = this.shuffleArray(this.stationMasters);
+    const selection: Tile[] = [];
+    const shuffledStationMasters = this.shuffleArray(this.stationMasters);
 
     for (let i = 0; i < 5; i++) {
       selection.push(shuffledStationMasters.pop());
@@ -292,7 +292,7 @@ export class ApplicationConfigService {
   }
 
   getRandomPlayerBuildings(): Tile[] {
-    let playerBuildings = JSON.parse(JSON.stringify(this.playerBuildings));
+    const playerBuildings = JSON.parse(JSON.stringify(this.playerBuildings));
 
     playerBuildings.forEach((playerBuilding: Tile) => {
       playerBuilding.sides.splice(
@@ -305,10 +305,10 @@ export class ApplicationConfigService {
   }
 
   private shuffleArray(inArray: any[]): any[] {
-    let returnArray = inArray.slice();
+    const returnArray = inArray.slice();
 
     for (
-      var j, x, i = returnArray.length;
+      let j, x, i = returnArray.length;
       i;
       j = Math.floor(Math.random() * i),
         x = returnArray[--i],

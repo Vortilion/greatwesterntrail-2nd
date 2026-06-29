@@ -1,5 +1,5 @@
 import { provideTransloco, TranslocoModule } from '@jsverse/transloco';
-import { Injectable, isDevMode, NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 
 import { TranslocoHttpLoader } from './transloco-loader';
 
