@@ -27,13 +27,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run tests
         run: npm run test
 
       - name: Build Angular app
-        run: |
-          npm ci
-          npm run build:prod
+        run: npm run build:prod
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
