@@ -14,6 +14,7 @@ import { filter } from 'rxjs';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
+  title = 'gwt-2nd_randomizer';
   private swUpdate = inject(SwUpdate);
   private snackbar = inject(MatSnackBar);
   private translocoService = inject(TranslocoService);
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
         'An error occurred that we cannot recover from:\n' +
           event.reason +
           '\n\nPlease reload the page.',
-        'Reload'
+        'Reload',
       );
 
       snackError.onAction().subscribe(() => {
@@ -34,20 +35,20 @@ export class AppComponent implements OnInit {
       console.debug(
         'An error occurred that we cannot recover from:\n' +
           event.reason +
-          '\n\nPlease reload the page.'
+          '\n\nPlease reload the page.',
       );
     });
 
     this.swUpdate.versionUpdates
       .pipe(
         filter(
-          (evt): evt is VersionDetectedEvent => evt.type === 'VERSION_DETECTED'
-        )
+          (evt): evt is VersionDetectedEvent => evt.type === 'VERSION_DETECTED',
+        ),
       )
       .subscribe(() => {
         const snack = this.snackbar.open(
           this.translocoService.translate('messages.update-available'),
-          'Reload'
+          'Reload',
         );
 
         snack.onAction().subscribe(() => {
