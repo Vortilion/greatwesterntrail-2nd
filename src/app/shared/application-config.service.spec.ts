@@ -1,3 +1,5 @@
+/// <reference types="jasmine" />
+
 import { TestBed } from '@angular/core/testing';
 import { ApplicationConfigService } from './application-config.service';
 import { Tile } from '../models/tile.model';
@@ -98,7 +100,7 @@ describe('ApplicationConfigService', () => {
     it('should have station masters with image paths', () => {
       service.stationMasters.forEach((master, index) => {
         expect(master.sides[0].image).toBe(
-          `img/station-master-0${index + 1}.png`
+          `img/station-master-0${index + 1}.png`,
         );
       });
     });
@@ -201,7 +203,9 @@ describe('ApplicationConfigService', () => {
 
       result.forEach((master) => {
         expect(master.sides[0].image).toBeDefined();
-        expect(master.sides[0].image).toMatch(/^img\/station-master-\d{2}\.png$/);
+        expect(master.sides[0].image).toMatch(
+          /^img\/station-master-\d{2}\.png$/,
+        );
       });
     });
 
@@ -240,9 +244,11 @@ describe('ApplicationConfigService', () => {
 
     it('should contain all building titles', () => {
       const result = service.getRandomPlayerBuildings();
-      const titles = result.map((b) => b.title).sort((a, b) => {
-        return parseInt(a) - parseInt(b);
-      });
+      const titles = result
+        .map((b) => b.title)
+        .sort((a, b) => {
+          return parseInt(a) - parseInt(b);
+        });
       const expectedTitles = [
         '1',
         '2',

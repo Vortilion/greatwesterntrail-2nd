@@ -1,4 +1,7 @@
+/// <reference types="jasmine" />
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideTransloco } from '@jsverse/transloco';
 
 import { PageFooterComponent } from './page-footer.component';
 
@@ -8,12 +11,20 @@ describe('PageFooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PageFooterComponent],
+      imports: [PageFooterComponent],
+      providers: [
+        provideTransloco({
+          config: {
+            availableLangs: ['de', 'en', 'pl'],
+            defaultLang: 'en',
+            fallbackLang: 'en',
+          },
+        }),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(PageFooterComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
