@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1782743411967,
+  "timestamp": 1782909043397,
   "index": "https://vortilion.github.io/greatwesterntrail-2nd/index.html",
   "assetGroups": [
     {
@@ -11,14 +11,14 @@
         "ignoreVary": true
       },
       "urls": [
-        "https://vortilion.github.io/greatwesterntrail-2nd/chunk-7TJMOVWD.js",
-        "https://vortilion.github.io/greatwesterntrail-2nd/chunk-PFFSBAEI.js",
+        "https://vortilion.github.io/greatwesterntrail-2nd/chunk-BHA7RQHF.js",
+        "https://vortilion.github.io/greatwesterntrail-2nd/chunk-XABTOU32.js",
         "https://vortilion.github.io/greatwesterntrail-2nd/favicon.ico",
         "https://vortilion.github.io/greatwesterntrail-2nd/index.html",
-        "https://vortilion.github.io/greatwesterntrail-2nd/main-GVECGOTC.js",
+        "https://vortilion.github.io/greatwesterntrail-2nd/main-PTPUAWKU.js",
         "https://vortilion.github.io/greatwesterntrail-2nd/manifest.webmanifest",
-        "https://vortilion.github.io/greatwesterntrail-2nd/polyfills-FFHMD2TL.js",
-        "https://vortilion.github.io/greatwesterntrail-2nd/styles-7GH4YALH.css"
+        "https://vortilion.github.io/greatwesterntrail-2nd/polyfills-HPZ7KTN2.js",
+        "https://vortilion.github.io/greatwesterntrail-2nd/styles-ENVXXUKH.css"
       ],
       "patterns": []
     },
@@ -53,8 +53,8 @@
   "dataGroups": [],
   "hashTable": {
     "https://vortilion.github.io/greatwesterntrail-2nd/apple-touch-icon.png": "4a982e2af53ab369b45aa7f215e0d52177add006",
-    "https://vortilion.github.io/greatwesterntrail-2nd/chunk-7TJMOVWD.js": "96e8098607496c8eeda62a130a27e52b28f681cf",
-    "https://vortilion.github.io/greatwesterntrail-2nd/chunk-PFFSBAEI.js": "534d08633bbc899b9c3d94953591018c65b3b7b2",
+    "https://vortilion.github.io/greatwesterntrail-2nd/chunk-BHA7RQHF.js": "c1dc8dcc1ebf37df045e969dd99150dca93ce516",
+    "https://vortilion.github.io/greatwesterntrail-2nd/chunk-XABTOU32.js": "72f6ec69c13292831ab60e72271065ca4bef1771",
     "https://vortilion.github.io/greatwesterntrail-2nd/favicon-16x16.png": "416b352bd22f65c5830d2dc98504a36d20b8c5d8",
     "https://vortilion.github.io/greatwesterntrail-2nd/favicon-32x32.png": "09a13d31124db9492dd764d53a0facf8c5a67e37",
     "https://vortilion.github.io/greatwesterntrail-2nd/favicon.ico": "649678bf5790630b706035e5dd8e1806dc49009b",
@@ -71,11 +71,11 @@
     "https://vortilion.github.io/greatwesterntrail-2nd/img/station-master-07.png": "e5b541bdcd58fe821011bcd0ec31b9c642a09cfe",
     "https://vortilion.github.io/greatwesterntrail-2nd/img/station-master-08.png": "ea84b6e6f8c677ff8ddb0cd183b0f5f9b471d9f7",
     "https://vortilion.github.io/greatwesterntrail-2nd/img/station-master-09.png": "4d5b1a0880aec27148b3b3e438e62a81d43fcda5",
-    "https://vortilion.github.io/greatwesterntrail-2nd/index.html": "4a10c02301af8e8c899451b66ce817b15fa1b084",
-    "https://vortilion.github.io/greatwesterntrail-2nd/main-GVECGOTC.js": "c1249e976cb270c7670fd85e063ec5d3a3882249",
+    "https://vortilion.github.io/greatwesterntrail-2nd/index.html": "48b77fb809c4438124f42594a0e4564983db7068",
+    "https://vortilion.github.io/greatwesterntrail-2nd/main-PTPUAWKU.js": "ba7904c1a5cfbff545abe12c635c77a671268acc",
     "https://vortilion.github.io/greatwesterntrail-2nd/manifest.webmanifest": "a1f07e13035ef2a44e7672e82b4bd32809a4fa24",
-    "https://vortilion.github.io/greatwesterntrail-2nd/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "https://vortilion.github.io/greatwesterntrail-2nd/styles-7GH4YALH.css": "c3c347001d0519f14367f1bd8a647e7472fd1f63"
+    "https://vortilion.github.io/greatwesterntrail-2nd/polyfills-HPZ7KTN2.js": "a328286aa2e927a96bf670f744a3fb4f9eec3a51",
+    "https://vortilion.github.io/greatwesterntrail-2nd/styles-ENVXXUKH.css": "b86453128cedb7d710acad864154b2f4bc7d2a74"
   },
   "navigationUrls": [
     {
