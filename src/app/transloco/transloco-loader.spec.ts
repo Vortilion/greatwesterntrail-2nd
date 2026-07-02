@@ -1,10 +1,8 @@
-/// <reference types="jasmine" />
+/// <reference types="vitest" />
 
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import { HttpTestingController } from '@angular/common/http/testing';
+import { firstValueFrom } from 'rxjs';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { Translation } from '@jsverse/transloco';
 
@@ -14,7 +12,7 @@ describe('TranslocoHttpLoader', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [],
       providers: [TranslocoHttpLoader],
     });
 
@@ -107,7 +105,7 @@ describe('TranslocoHttpLoader', () => {
 
       service.getTranslation('invalid').subscribe(
         () => {},
-        (error) => {
+        () => {
           errorReceived = true;
         },
       );
@@ -163,16 +161,15 @@ describe('TranslocoHttpLoader', () => {
       req.flush({});
     });
 
-    it('should return Observable that completes', (done) => {
-      service.getTranslation('en').subscribe({
-        next: () => {},
-        complete: () => {
-          done();
-        },
-      });
+    it('should return Observable that completes', async () => {
+      const translation$ = service.getTranslation('en');
+      const resultPromise = firstValueFrom(translation$);
 
       const req = httpMock.expectOne('i18n/en.json');
       req.flush({});
+
+      const result = await resultPromise;
+      expect(result).toBeDefined();
     });
   });
 });

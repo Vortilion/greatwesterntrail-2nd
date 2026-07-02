@@ -8,12 +8,11 @@ import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [CommonModule, RouterOutlet, TranslocoModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
-export class AppComponent implements OnInit {
+export class App implements OnInit {
   title = 'gwt-2nd_randomizer';
   private swUpdate = inject(SwUpdate);
   private snackbar = inject(MatSnackBar);
@@ -22,9 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.swUpdate.unrecoverable.subscribe((event) => {
       const snackError = this.snackbar.open(
-        'An error occurred that we cannot recover from:\n' +
-          event.reason +
-          '\n\nPlease reload the page.',
+        'An error occurred that we cannot recover from:\n' + event.reason + '\n\nPlease reload the page.',
         'Reload',
       );
 
@@ -32,24 +29,13 @@ export class AppComponent implements OnInit {
         window.location.reload();
       });
 
-      console.debug(
-        'An error occurred that we cannot recover from:\n' +
-          event.reason +
-          '\n\nPlease reload the page.',
-      );
+      console.debug('An error occurred that we cannot recover from:\n' + event.reason + '\n\nPlease reload the page.');
     });
 
     this.swUpdate.versionUpdates
-      .pipe(
-        filter(
-          (evt): evt is VersionDetectedEvent => evt.type === 'VERSION_DETECTED',
-        ),
-      )
+      .pipe(filter((evt): evt is VersionDetectedEvent => evt.type === 'VERSION_DETECTED'))
       .subscribe(() => {
-        const snack = this.snackbar.open(
-          this.translocoService.translate('messages.update-available'),
-          'Reload',
-        );
+        const snack = this.snackbar.open(this.translocoService.translate('messages.update-available'), 'Reload');
 
         snack.onAction().subscribe(() => {
           window.location.reload();

@@ -1,8 +1,5 @@
-/// <reference types="jasmine" />
-
 import { TestBed } from '@angular/core/testing';
 import { ApplicationConfigService } from './application-config.service';
-import { Tile } from '../models/tile.model';
 
 describe('ApplicationConfigService', () => {
   let service: ApplicationConfigService;
@@ -29,30 +26,27 @@ describe('ApplicationConfigService', () => {
       expect(service.playerCount).toBeDefined();
     });
 
-    it('should emit useVariant event with correct data', (done) => {
+    it('should emit useVariant event with correct data', () => {
       const testData = { name: 'useSimmental', checked: true };
 
       service.useVariant.subscribe((data) => {
         expect(data).toEqual(testData);
-        done();
       });
 
       service.useVariant.emit(testData);
     });
 
-    it('should emit useRailsToTheNorth event with correct data', (done) => {
+    it('should emit useRailsToTheNorth event with correct data', () => {
       service.useRailsToTheNorth.subscribe((data) => {
         expect(data).toBe(true);
-        done();
       });
 
       service.useRailsToTheNorth.emit(true);
     });
 
-    it('should emit playerCount event with correct data', (done) => {
+    it('should emit playerCount event with correct data', () => {
       service.playerCount.subscribe((count) => {
         expect(count).toBe(4);
-        done();
       });
 
       service.playerCount.emit(4);
@@ -99,9 +93,7 @@ describe('ApplicationConfigService', () => {
 
     it('should have station masters with image paths', () => {
       service.stationMasters.forEach((master, index) => {
-        expect(master.sides[0].image).toBe(
-          `img/station-master-0${index + 1}.png`,
-        );
+        expect(master.sides[0].image).toBe(`img/station-master-0${index + 1}.png`);
       });
     });
   });
@@ -136,11 +128,9 @@ describe('ApplicationConfigService', () => {
 
     it('should return different orders on multiple calls', () => {
       const order1 = service.getRandomNeutralBuildingOrder();
-      const order2 = service.getRandomNeutralBuildingOrder();
 
       // Convert to strings for comparison
       const str1 = order1.map((b) => b.title).join('');
-      const str2 = order2.map((b) => b.title).join('');
 
       // With 7! = 5040 possible permutations, it's highly likely they'll be different
       // Running multiple times to increase probability
@@ -203,18 +193,14 @@ describe('ApplicationConfigService', () => {
 
       result.forEach((master) => {
         expect(master.sides[0].image).toBeDefined();
-        expect(master.sides[0].image).toMatch(
-          /^img\/station-master-\d{2}\.png$/,
-        );
+        expect(master.sides[0].image).toMatch(/^img\/station-master-\d{2}\.png$/);
       });
     });
 
     it('should return different selections on multiple calls', () => {
       const selection1 = service.getRandomStationMasters();
-      const selection2 = service.getRandomStationMasters();
 
       const str1 = selection1.map((m) => m.title).join('');
-      const str2 = selection2.map((m) => m.title).join('');
 
       // With C(8,5) = 56 possible combinations, likely to be different
       let allSame = true;
@@ -249,20 +235,7 @@ describe('ApplicationConfigService', () => {
         .sort((a, b) => {
           return parseInt(a) - parseInt(b);
         });
-      const expectedTitles = [
-        '1',
-        '2',
-        '3',
-        '4',
-        '5',
-        '6',
-        '7',
-        '8',
-        '9',
-        '10',
-        '11',
-        '12',
-      ];
+      const expectedTitles = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
       expect(titles).toEqual(expectedTitles);
     });
