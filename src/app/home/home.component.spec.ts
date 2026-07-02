@@ -12,6 +12,7 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
+    TestBed.resetTestingModule();
     await TestBed.configureTestingModule({
       imports: [HomeComponent],
       providers: [

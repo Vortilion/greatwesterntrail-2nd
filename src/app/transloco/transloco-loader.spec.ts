@@ -1,7 +1,8 @@
 /// <reference types="vitest" />
 
 import { TestBed } from '@angular/core/testing';
-import { HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { Translation } from '@jsverse/transloco';
@@ -11,9 +12,9 @@ describe('TranslocoHttpLoader', () => {
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
+    TestBed.resetTestingModule();
     TestBed.configureTestingModule({
-      imports: [],
-      providers: [TranslocoHttpLoader],
+      providers: [provideHttpClient(), provideHttpClientTesting(), TranslocoHttpLoader],
     });
 
     service = TestBed.inject(TranslocoHttpLoader);
@@ -21,7 +22,9 @@ describe('TranslocoHttpLoader', () => {
   });
 
   afterEach(() => {
-    httpMock.verify();
+    if (httpMock) {
+      httpMock.verify();
+    }
   });
 
   it('should be created', () => {
