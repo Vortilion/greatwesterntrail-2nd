@@ -1,9 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
-import { StorageMap } from '@ngx-pwa/local-storage';
-import { of } from 'rxjs';
 import { provideTransloco } from '@jsverse/transloco';
+import { LocalStorageService } from '../shared/local-storage.service';
 
 import { HomeComponent } from './home.component';
 
@@ -26,7 +25,12 @@ describe('HomeComponent', () => {
         {
           provide: BreakpointObserver,
           useValue: {
-            observe: () => of({ matches: false }),
+            observe: () => ({
+              subscribe: (callback: (result: { matches: boolean }) => void) => {
+                callback({ matches: false });
+                return { unsubscribe: () => undefined };
+              },
+            }),
           },
         },
         {
@@ -34,10 +38,10 @@ describe('HomeComponent', () => {
           useValue: {},
         },
         {
-          provide: StorageMap,
+          provide: LocalStorageService,
           useValue: {
-            get: () => of(undefined),
-            set: () => of(undefined),
+            get: () => undefined,
+            set: () => true,
           },
         },
       ],

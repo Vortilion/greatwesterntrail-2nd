@@ -14,9 +14,9 @@ import {
   MatSlideToggleChange,
   MatSlideToggleModule,
 } from '@angular/material/slide-toggle';
-import { StorageMap } from '@ngx-pwa/local-storage';
 import { TranslocoModule } from '@jsverse/transloco';
 import { ApplicationConfigService } from '../shared/application-config.service';
+import { LocalStorageService } from '../shared/local-storage.service';
 import { Tile } from '../models/tile.model';
 import { PlayerCountOption } from '../models/player-count-option.model';
 import { VariantWarningDialogComponent } from '../variant-warning-modal/variant-warning-dialog.component';
@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   private applicationConfigService = inject(ApplicationConfigService);
   private responsive = inject(BreakpointObserver);
-  private storage = inject(StorageMap);
+  private storage = inject(LocalStorageService);
 
   ngOnInit(): void {
     this.playerCount = 2;
@@ -97,53 +97,42 @@ export class HomeComponent implements OnInit {
       }
     });
 
-    this.storage.get('rar-playerCount').subscribe((playerCount) => {
-      if (playerCount && typeof playerCount === 'number') {
-        this.emitPlayerCount(playerCount);
-      } else {
-        this.storage.set('rar-playerCount', 2);
-      }
-    });
+    const playerCount = this.storage.get<number>('rar-playerCount');
+    if (playerCount && typeof playerCount === 'number') {
+      this.emitPlayerCount(playerCount);
+    } else {
+      this.storage.set('rar-playerCount', 2);
+    }
 
-    this.storage.get('rar-useSimmental').subscribe((useSimmental) => {
-      if (
-        this.useSimmental !== undefined &&
-        typeof useSimmental === 'boolean'
-      ) {
-        this.applicationConfigService.useVariant.emit({
-          name: 'useSimmental',
-          checked: useSimmental,
-        });
-      } else {
-        this.storage.set('rar-useSimmental', false);
-      }
-    });
-
-    this.storage.get('rar-useBrahman').subscribe((useBrahman) => {
-      if (this.useSimmental !== undefined && typeof useBrahman === 'boolean') {
-        this.applicationConfigService.useVariant.emit({
-          name: 'useBrahman',
-          checked: useBrahman,
-        });
-      } else {
-        this.storage.set('rar-useBrahman', false);
-      }
-    });
-
-    this.storage
-      .get('rar-useRailsToTheNorth')
-      .subscribe((useRailsToTheNorth) => {
-        if (
-          useRailsToTheNorth !== undefined &&
-          typeof useRailsToTheNorth === 'boolean'
-        ) {
-          this.applicationConfigService.useRailsToTheNorth.emit(
-            useRailsToTheNorth,
-          );
-        } else {
-          this.storage.set('rar-useRailsToTheNorth', false);
-        }
+    const useSimmental = this.storage.get<boolean>('rar-useSimmental');
+    if (this.useSimmental !== undefined && typeof useSimmental === 'boolean') {
+      this.applicationConfigService.useVariant.emit({
+        name: 'useSimmental',
+        checked: useSimmental,
       });
+    } else {
+      this.storage.set('rar-useSimmental', false);
+    }
+
+    const useBrahman = this.storage.get<boolean>('rar-useBrahman');
+    if (this.useSimmental !== undefined && typeof useBrahman === 'boolean') {
+      this.applicationConfigService.useVariant.emit({
+        name: 'useBrahman',
+        checked: useBrahman,
+      });
+    } else {
+      this.storage.set('rar-useBrahman', false);
+    }
+
+    const useRailsToTheNorth = this.storage.get<boolean>('rar-useRailsToTheNorth');
+    if (
+      useRailsToTheNorth !== undefined &&
+      typeof useRailsToTheNorth === 'boolean'
+    ) {
+      this.applicationConfigService.useRailsToTheNorth.emit(useRailsToTheNorth);
+    } else {
+      this.storage.set('rar-useRailsToTheNorth', false);
+    }
 
     this.applicationConfigService.playerCount.subscribe(
       (playerCount: number) => {
@@ -185,18 +174,16 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.openDialog();
 
     dialogRef.afterClosed().subscribe(() => {
-      this.storage.set('rar-useSimmental', false).subscribe(() => {
-        this.useSimmental = false;
-      });
+      this.storage.set('rar-useSimmental', false);
+      this.useSimmental = false;
 
       this.applicationConfigService.useVariant.emit({
         name: 'useSimmental',
         checked: false,
       });
 
-      this.storage.set('rar-useBrahman', false).subscribe(() => {
-        this.useBrahman = false;
-      });
+      this.storage.set('rar-useBrahman', false);
+      this.useBrahman = false;
 
       this.applicationConfigService.useVariant.emit({
         name: 'useBrahman',
