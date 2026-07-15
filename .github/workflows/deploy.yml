@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm run test
+        run: npm run test:ci
 
       - name: Build Angular app
         run: npm run build:prod
@@ -40,4 +40,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           BRANCH: gh-pages
-          FOLDER: dist/gwt-2nd_randomizer/browser
+          FOLDER: dist/browser
