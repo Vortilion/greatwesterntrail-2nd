@@ -1,54 +1,51 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
-import { provideTransloco } from '@jsverse/transloco';
+import { of } from 'rxjs';
 import { LocalStorageService } from '../shared/local-storage.service';
+import { GwtSecondEditionConfigService } from '../shared/gwt-second-edition-config.service';
 
 import { HomeComponent } from './home.component';
+
+const breakpointObserverMock = {
+  observe: () => of({ matches: false }),
+};
+
+const localStorageServiceMock = {
+  get: () => null,
+  set: () => true,
+};
+
+const matDialogMock = {
+  open: () => ({
+    afterClosed: () => of(undefined),
+  }),
+};
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
-    TestBed.resetTestingModule();
+    TestBed.overrideComponent(HomeComponent, {
+      set: {
+        template: '',
+      },
+    });
+
     await TestBed.configureTestingModule({
       imports: [HomeComponent],
       providers: [
-        provideTransloco({
-          config: {
-            availableLangs: ['de', 'en', 'pl'],
-            defaultLang: 'en',
-            fallbackLang: 'en',
-          },
-        }),
-        {
-          provide: BreakpointObserver,
-          useValue: {
-            observe: () => ({
-              subscribe: (callback: (result: { matches: boolean }) => void) => {
-                callback({ matches: false });
-                return { unsubscribe: () => undefined };
-              },
-            }),
-          },
-        },
-        {
-          provide: MatDialog,
-          useValue: {},
-        },
-        {
-          provide: LocalStorageService,
-          useValue: {
-            get: () => undefined,
-            set: () => true,
-          },
-        },
+        GwtSecondEditionConfigService,
+        { provide: BreakpointObserver, useValue: breakpointObserverMock },
+        { provide: LocalStorageService, useValue: localStorageServiceMock },
+        { provide: MatDialog, useValue: matDialogMock },
       ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {

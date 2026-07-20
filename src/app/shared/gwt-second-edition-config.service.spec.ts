@@ -69,8 +69,8 @@ describe('GwtSecondEditionConfigService', () => {
       });
     });
 
-    it('should have 8 station masters', () => {
-      expect(service.stationMasters.length).toBe(8);
+    it('should have 9 station masters', () => {
+      expect(service.stationMasters.length).toBe(9);
     });
 
     it('should have station masters with correct structure', () => {
