@@ -1,55 +1,46 @@
 import { TestBed } from '@angular/core/testing';
-import { ApplicationConfigService } from './application-config.service';
+import { GwtSecondEditionConfigService } from './gwt-second-edition-config.service';
 
-describe('ApplicationConfigService', () => {
-  let service: ApplicationConfigService;
+describe('GwtSecondEditionConfigService', () => {
+  let service: GwtSecondEditionConfigService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ApplicationConfigService);
+    service = TestBed.inject(GwtSecondEditionConfigService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  describe('EventEmitters', () => {
-    it('should have useVariant EventEmitter', () => {
+  describe('Signals', () => {
+    it('should have useVariant signal', () => {
       expect(service.useVariant).toBeDefined();
     });
 
-    it('should have useRailsToTheNorth EventEmitter', () => {
+    it('should have useRailsToTheNorth signal', () => {
       expect(service.useRailsToTheNorth).toBeDefined();
     });
 
-    it('should have playerCount EventEmitter', () => {
+    it('should have playerCount signal', () => {
       expect(service.playerCount).toBeDefined();
     });
 
-    it('should emit useVariant event with correct data', () => {
+    it('should update useVariant signal with correct data', () => {
       const testData = { name: 'useSimmental', checked: true };
 
-      service.useVariant.subscribe((data) => {
-        expect(data).toEqual(testData);
-      });
-
-      service.useVariant.emit(testData);
+      service.setUseVariant(testData);
+      expect(service.useVariant()).toEqual(testData);
     });
 
-    it('should emit useRailsToTheNorth event with correct data', () => {
-      service.useRailsToTheNorth.subscribe((data) => {
-        expect(data).toBe(true);
-      });
-
-      service.useRailsToTheNorth.emit(true);
+    it('should update useRailsToTheNorth signal with correct data', () => {
+      service.setUseRailsToTheNorth(true);
+      expect(service.useRailsToTheNorth()).toBe(true);
     });
 
-    it('should emit playerCount event with correct data', () => {
-      service.playerCount.subscribe((count) => {
-        expect(count).toBe(4);
-      });
-
-      service.playerCount.emit(4);
+    it('should update playerCount signal with correct data', () => {
+      service.setPlayerCount(4);
+      expect(service.playerCount()).toBe(4);
     });
   });
 
