@@ -1,15 +1,15 @@
 <ng-container *transloco="let t">
-  <div class="home-component flex flex-col" [class.is-mobile]="isXSmall">
+  <div class="home-component flex flex-col" [class.is-mobile]="isXSmall()">
     <app-page-header [sidebarHandle]="sidenav"> </app-page-header>
 
-    <mat-sidenav-container class="sidenav-container flex-1" [style.paddingTop.px]="isXSmall ? 56 : 0">
+    <mat-sidenav-container class="sidenav-container flex-1" [style.paddingTop.px]="isXSmall() ? 56 : 0">
       <mat-sidenav
         class="sidenav"
         #sidenav
-        [mode]="isXSmall ? 'over' : 'side'"
-        [fixedInViewport]="isXSmall"
+        [mode]="isXSmall() ? 'over' : 'side'"
+        [fixedInViewport]="isXSmall()"
         fixedTopGap="56"
-        [opened]="isXSmall ? 'false' : 'opened'"
+        [opened]="isXSmall() ? 'false' : 'opened'"
       >
         <div class="sidenav__inner p-4">
           <h2>{{ t('options-label') }}:</h2>
@@ -18,8 +18,8 @@
           <h3>{{ t('player-count-label') }}:</h3>
           <mat-form-field appearance="fill">
             <mat-label>{{ t('player-count-select-label') }}</mat-label>
-            <mat-select [value]="playerCount" (selectionChange)="onPlayerCountChange($event)">
-              @for (playerCount of playerCountList; track playerCount.value) {
+            <mat-select [value]="playerCount()" (selectionChange)="onPlayerCountChange($event)">
+              @for (playerCount of playerCountList(); track playerCount.value) {
                 <mat-option [value]="playerCount.value">
                   {{ playerCount.label }} <span>{{ t('players-label') }}</span>
                 </mat-option>
@@ -33,8 +33,7 @@
               class="options-list__option"
               color="primary"
               name="useSimmental"
-              [(ngModel)]="useSimmental"
-              [checked]="useSimmental"
+              [checked]="useSimmental()"
               (change)="onVariantChange('useSimmental', $event)"
             >
               {{ t('variant-simmental') }}
@@ -44,8 +43,7 @@
               class="options-list__option"
               color="primary"
               name="useBrahman"
-              [(ngModel)]="useBrahman"
-              [checked]="useBrahman"
+              [checked]="useBrahman()"
               (change)="onVariantChange('useBrahman', $event)"
             >
               {{ t('variant-brahman') }}
@@ -58,7 +56,7 @@
               class="options-list__option"
               color="primary"
               name="useRailsToTheNorth"
-              [checked]="useRailsToTheNorth"
+              [checked]="useRailsToTheNorth()"
               (change)="onExpansionChange($event)"
             >
               {{ t('expansion-rails') }}
@@ -71,12 +69,12 @@
         <div class="sidenav-content flex flex-col min-h-full">
           <div class="flex-1 px-2 xSmall:px-10 py-5">
             <div class="mb-4">
-              <button [class]="{ 'w-full': isXSmall }" mat-flat-button color="primary" (click)="randomizeSetup()">
+              <button [class]="{ 'w-full': isXSmall() }" mat-flat-button color="primary" (click)="randomizeSetup()">
                 <span>{{ t('btn-setup-label') }}</span>
               </button>
             </div>
-            <mat-grid-list [cols]="isMax1280 ? 1 : 2" rowHeight="180px" gutterSize="5px">
-              @if (randomNeutralBuildings.length > 0) {
+            <mat-grid-list [cols]="isMax1280() ? 1 : 2" rowHeight="180px" gutterSize="5px">
+              @if (randomNeutralBuildings().length > 0) {
                 <mat-grid-tile>
                   <mat-grid-tile-header>
                     <h3>
@@ -85,7 +83,7 @@
                     </h3>
                   </mat-grid-tile-header>
                   <ul class="flex">
-                    @for (neutralBuilding of randomNeutralBuildings; track $index) {
+                    @for (neutralBuilding of randomNeutralBuildings(); track $index) {
                       <li class="px-2 text-2xl xSmall:text-xl">
                         <span>{{ neutralBuilding.title }}</span>
                       </li>
@@ -94,7 +92,7 @@
                 </mat-grid-tile>
               }
 
-              @if (randomStationMasters && randomStationMasters.length > 0) {
+              @if (randomStationMasters() && randomStationMasters().length > 0) {
                 <mat-grid-tile>
                   <mat-grid-tile-header>
                     <h3>
@@ -103,7 +101,7 @@
                     </h3>
                   </mat-grid-tile-header>
                   <div class="flex">
-                    @for (randomStationMaster of randomStationMasters; track $index) {
+                    @for (randomStationMaster of randomStationMasters(); track $index) {
                       <div>
                         <img
                           class="px-1 xSmall:px-2 md:px-4"
@@ -123,7 +121,7 @@
                   </h3>
                 </mat-grid-tile-header>
                 <div class="flex flex-wrap">
-                  @for (randomPlayerBuilding of randomPlayerBuildings; track $index) {
+                  @for (randomPlayerBuilding of randomPlayerBuildings(); track $index) {
                     <span class="px-2 text-2xl xSmall:text-xl flex-1">
                       <span class="whitespace-nowrap"
                         >{{ randomPlayerBuilding.title }}{{ randomPlayerBuilding.sides[0].title }}
@@ -185,20 +183,20 @@
                     </ul>
                   </li>
                   <li>
-                    @if (useSimmental && !useBrahman) {
+                    @if (useSimmental() && !useBrahman()) {
                       <ng-container>{{ t('further-steps-step4_simmental') }}</ng-container>
                     }
-                    @if (useBrahman && !useSimmental) {
+                    @if (useBrahman() && !useSimmental()) {
                       <ng-container>{{ t('further-steps-step4_brahman') }}</ng-container>
                     }
-                    @if (!(useBrahman || useSimmental)) {
+                    @if (!(useBrahman() || useSimmental())) {
                       <ng-container>{{ t('further-steps-step4') }}</ng-container>
                     }
 
                     <ul class="list-disc pl-8 text-gray-400">
-                      @if (playerCount === 2) {
+                      @if (playerCount() === 2) {
                         <li>
-                          @if (useSimmental || useBrahman) {
+                          @if (useSimmental() || useBrahman()) {
                             <ng-container>{{ t('further-steps-step41_simmental_brahman') }}</ng-container>
                           } @else {
                             {{ t('further-steps-step41') }}
@@ -206,35 +204,35 @@
                         </li>
                       }
 
-                      @if (playerCount === 3) {
+                      @if (playerCount() === 3) {
                         <li>
-                          @if (useSimmental || useBrahman) {
+                          @if (useSimmental() || useBrahman()) {
                             <ng-container>{{ t('further-steps-step42_simmental_brahman') }}</ng-container>
                           } @else {
                             {{ t('further-steps-step42') }}
                           }
                         </li>
                       }
-                      @if (playerCount === 4) {
+                      @if (playerCount() === 4) {
                         <li>
-                          @if (useSimmental || useBrahman) {
+                          @if (useSimmental() || useBrahman()) {
                             <ng-container>{{ t('further-steps-step43_simmental_brahman') }}</ng-container>
                           } @else {
                             {{ t('further-steps-step43') }}
                           }
                         </li>
                       }
-                      @if (useSimmental) {
+                      @if (useSimmental()) {
                         <li>
                           {{ t('further-steps-simmental2') }}
                         </li>
                       }
-                      @if (useSimmental) {
+                      @if (useSimmental()) {
                         <li>
                           {{ t('further-steps-simmental3') }}
                         </li>
                       }
-                      @if (useBrahman) {
+                      @if (useBrahman()) {
                         <li>
                           {{ t('further-steps-brahman') }}
                         </li>
@@ -242,7 +240,7 @@
                     </ul>
                   </li>
 
-                  @if (!useRailsToTheNorth) {
+                  @if (!useRailsToTheNorth()) {
                     <li>
                       {{ t('further-steps-step5') }}
                     </li>
@@ -252,29 +250,29 @@
                     <ul class="list-disc pl-8 text-gray-400">
                       <li>{{ t('further-steps-step61') }}</li>
                       <li>{{ t('further-steps-step62') }}</li>
-                      @if (playerCount >= 3) {
+                      @if (playerCount() >= 3) {
                         <li>
                           {{ t('further-steps-step63') }}
                         </li>
                       }
-                      @if (playerCount > 3) {
+                      @if (playerCount() > 3) {
                         <li>
                           {{ t('further-steps-step64') }}
                         </li>
                       }
                     </ul>
                   </li>
-                  @if (useRailsToTheNorth) {
+                  @if (useRailsToTheNorth()) {
                     <li>
                       {{ t('further-steps-step7') }}
                     </li>
                   }
-                  @if (useRailsToTheNorth) {
+                  @if (useRailsToTheNorth()) {
                     <li>
                       {{ t('further-steps-step8') }}
                     </li>
                   }
-                  @if (useRailsToTheNorth) {
+                  @if (useRailsToTheNorth()) {
                     <li>
                       {{ t('further-steps-step9') }}
                       <ul class="list-disc pl-8 text-gray-400">
@@ -284,7 +282,7 @@
                       </ul>
                     </li>
                   }
-                  @if (useRailsToTheNorth) {
+                  @if (useRailsToTheNorth()) {
                     <li>
                       {{ t('further-steps-step10') }}
                       <ul class="list-disc pl-8 text-gray-400">
@@ -295,13 +293,13 @@
                       </ul>
                     </li>
                   }
-                  @if (useRailsToTheNorth) {
+                  @if (useRailsToTheNorth()) {
                     <li>
                       {{ t('further-steps-step11') }}
                       <ul class="list-disc pl-8 text-gray-400">
                         <li>{{ t('further-steps-step11_1') }}</li>
                         <li>{{ t('further-steps-step11_2') }}</li>
-                        @if (useSimmental) {
+                        @if (useSimmental()) {
                           <li>
                             {{ t('further-steps-step11_3') }}
                           </li>

@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,8 +15,9 @@ import {
   MatSlideToggleChange,
   MatSlideToggleModule,
 } from '@angular/material/slide-toggle';
-import { TranslocoModule } from '@jsverse/transloco';
-import { ApplicationConfigService } from '../shared/application-config.service';
+import { TranslocoDirective } from '@jsverse/transloco';
+import { map } from 'rxjs/operators';
+import { GwtSecondEditionConfigService } from '../shared/gwt-second-edition-config.service';
 import { LocalStorageService } from '../shared/local-storage.service';
 import { Tile } from '../models/tile.model';
 import { PlayerCountOption } from '../models/player-count-option.model';
@@ -37,122 +39,84 @@ import { PageFooterComponent } from '../page-footer/page-footer.component';
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    TranslocoModule,
+    TranslocoDirective,
     PageHeaderComponent,
     PageFooterComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  randomNeutralBuildings!: Tile[];
-  randomPlayerBuildings!: Tile[];
-  randomStationMasters!: Tile[];
-  playerCount!: number;
-  playerCountList!: PlayerCountOption[];
-  isXSmall!: boolean;
-  isMax1280!: boolean;
-  useSimmental!: boolean;
-  useBrahman!: boolean;
-  useRailsToTheNorth!: boolean;
-  readonly dialog = inject(MatDialog);
-  private applicationConfigService = inject(ApplicationConfigService);
+export class HomeComponent {
+    readonly dialog = inject(MatDialog);
+  private gwtSecondEditionConfigService = inject(GwtSecondEditionConfigService);
   private responsive = inject(BreakpointObserver);
   private storage = inject(LocalStorageService);
 
-  ngOnInit(): void {
-    this.playerCount = 2;
-    this.playerCountList = [
-      {
-        label: '2',
-        value: 2,
-      },
-      {
-        label: '3',
-        value: 3,
-      },
-      {
-        label: '4',
-        value: 4,
-      },
-    ];
+  // State signals
+  randomNeutralBuildings = signal<Tile[]>([]);
+  randomPlayerBuildings = signal<Tile[]>([]);
+  randomStationMasters = signal<Tile[]>([]);
+  playerCountList = signal<PlayerCountOption[]>([
+    { label: '2', value: 2 },
+    { label: '3', value: 3 },
+    { label: '4', value: 4 },
+  ]);
+  isXSmall = toSignal(
+    this.responsive.observe(Breakpoints.XSmall).pipe(
+      map((result) => result.matches)
+    ),
+    { initialValue: false }
+  );
 
-    this.useSimmental = false;
-    this.useRailsToTheNorth = false;
-    this.useBrahman = false;
+  isMax1280 = toSignal(
+    this.responsive.observe('(max-width: 1280px)').pipe(
+      map((result) => result.matches)
+    ),
+    { initialValue: false }
+  );
 
-    this.responsive.observe(Breakpoints.XSmall).subscribe((result) => {
-      if (result.matches) {
-        this.isXSmall = true;
-      } else {
-        this.isXSmall = false;
-      }
-    });
+  playerCount = this.gwtSecondEditionConfigService.playerCount;
+  useSimmental = signal<boolean>(false);
+  useBrahman = signal<boolean>(false);
+  useRailsToTheNorth = this.gwtSecondEditionConfigService.useRailsToTheNorth;
 
-    this.responsive.observe('(max-width: 1280px)').subscribe((result) => {
-      if (result.matches) {
-        this.isMax1280 = true;
-      } else {
-        this.isMax1280 = false;
-      }
-    });
 
-    const playerCount = this.storage.get<number>('rar-playerCount');
-    if (playerCount && typeof playerCount === 'number') {
-      this.emitPlayerCount(playerCount);
+  constructor() {
+    const playerCount = this.storage.get<number>('gwt2-playerCount');
+    if (typeof playerCount === 'number') {
+      this.gwtSecondEditionConfigService.setPlayerCount(playerCount);
     } else {
-      this.storage.set('rar-playerCount', 2);
+      this.storage.set('gwt2-playerCount', 2);
     }
 
-    const useSimmental = this.storage.get<boolean>('rar-useSimmental');
-    if (this.useSimmental !== undefined && typeof useSimmental === 'boolean') {
-      this.applicationConfigService.useVariant.emit({
+    const useSimmental = this.storage.get<boolean>('gwt2-useSimmental');
+    if (typeof useSimmental === 'boolean') {
+      this.useSimmental.set(useSimmental);
+      this.gwtSecondEditionConfigService.setUseVariant({
         name: 'useSimmental',
         checked: useSimmental,
       });
     } else {
-      this.storage.set('rar-useSimmental', false);
+      this.storage.set('gwt2-useSimmental', false);
     }
 
-    const useBrahman = this.storage.get<boolean>('rar-useBrahman');
-    if (this.useSimmental !== undefined && typeof useBrahman === 'boolean') {
-      this.applicationConfigService.useVariant.emit({
+    const useBrahman = this.storage.get<boolean>('gwt2-useBrahman');
+    if (typeof useBrahman === 'boolean') {
+      this.useBrahman.set(useBrahman);
+      this.gwtSecondEditionConfigService.setUseVariant({
         name: 'useBrahman',
         checked: useBrahman,
       });
     } else {
-      this.storage.set('rar-useBrahman', false);
+      this.storage.set('gwt2-useBrahman', false);
     }
 
-    const useRailsToTheNorth = this.storage.get<boolean>('rar-useRailsToTheNorth');
-    if (
-      useRailsToTheNorth !== undefined &&
-      typeof useRailsToTheNorth === 'boolean'
-    ) {
-      this.applicationConfigService.useRailsToTheNorth.emit(useRailsToTheNorth);
+    const useRailsToTheNorth = this.storage.get<boolean>('gwt2-useRailsToTheNorth');
+    if (typeof useRailsToTheNorth === 'boolean') {
+      this.gwtSecondEditionConfigService.setUseRailsToTheNorth(useRailsToTheNorth);
     } else {
-      this.storage.set('rar-useRailsToTheNorth', false);
+      this.storage.set('gwt2-useRailsToTheNorth', false);
     }
-
-    this.applicationConfigService.playerCount.subscribe(
-      (playerCount: number) => {
-        this.playerCount = playerCount;
-      },
-    );
-
-    this.applicationConfigService.useVariant.subscribe((event) => {
-      if (event.name === 'useSimmental') {
-        this.useSimmental = event.checked;
-      } else if (event.name === 'useBrahman') {
-        this.useBrahman = event.checked;
-      }
-    });
-
-    this.applicationConfigService.useRailsToTheNorth.subscribe(
-      (useRailsToTheNorth: boolean) => {
-        this.useRailsToTheNorth = useRailsToTheNorth;
-      },
-    );
 
     this.randomizeSetup();
   }
@@ -161,66 +125,70 @@ export class HomeComponent implements OnInit {
     return this.dialog.open(VariantWarningDialogComponent, {});
   }
 
-  emitPlayerCount(playerCount: number) {
-    this.applicationConfigService.playerCount.emit(playerCount);
-  }
-
   onPlayerCountChange(event: MatSelectChange) {
-    this.storage.set('rar-playerCount', event.value);
-    this.emitPlayerCount(event.value);
+    const playerCount = Number(event.value);
+    this.storage.set('gwt2-playerCount', playerCount);
+    this.gwtSecondEditionConfigService.setPlayerCount(playerCount);
   }
 
-  resetVariants() {
+  resetVariants(): void {
     const dialogRef = this.openDialog();
 
     dialogRef.afterClosed().subscribe(() => {
-      this.storage.set('rar-useSimmental', false);
-      this.useSimmental = false;
+      this.storage.set('gwt2-useSimmental', false);
+      this.useSimmental.set(false);
 
-      this.applicationConfigService.useVariant.emit({
+      this.gwtSecondEditionConfigService.setUseVariant({
         name: 'useSimmental',
         checked: false,
       });
 
-      this.storage.set('rar-useBrahman', false);
-      this.useBrahman = false;
+      this.storage.set('gwt2-useBrahman', false);
+      this.useBrahman.set(false);
 
-      this.applicationConfigService.useVariant.emit({
+      this.gwtSecondEditionConfigService.setUseVariant({
         name: 'useBrahman',
         checked: false,
       });
     });
   }
 
-  onVariantChange(name: string, event: MatSlideToggleChange) {
+  onVariantChange(name: string, event: MatSlideToggleChange): void {
     if (
-      (this.useBrahman && name === 'useSimmental' && event.checked) ||
-      (this.useSimmental && name === 'useBrahman' && event.checked)
+      (this.useBrahman() && name === 'useSimmental' && event.checked) ||
+      (this.useSimmental() && name === 'useBrahman' && event.checked)
     ) {
       this.resetVariants();
     } else {
-      this.storage.set(`rar-${event.source.name}`, event.checked);
-
-      this.applicationConfigService.useVariant.emit({
-        name: name,
+      this.storage.set(`gwt2-${event.source.name}`, event.checked);
+      if (name === 'useSimmental') {
+        this.useSimmental.set(event.checked);
+      } else if (name === 'useBrahman') {
+        this.useBrahman.set(event.checked);
+      }
+      this.gwtSecondEditionConfigService.setUseVariant({
+        name,
         checked: event.checked,
       });
     }
   }
 
   onExpansionChange(event: MatSlideToggleChange) {
-    this.storage.set('rar-useRailsToTheNorth', event.checked);
-    this.applicationConfigService.useRailsToTheNorth.emit(event.checked);
+    this.storage.set('gwt2-useRailsToTheNorth', event.checked);
+    this.gwtSecondEditionConfigService.setUseRailsToTheNorth(event.checked);
   }
 
   randomizeSetup() {
-    this.randomNeutralBuildings =
-      this.applicationConfigService.getRandomNeutralBuildingOrder();
+    this.randomNeutralBuildings.set(
+      this.gwtSecondEditionConfigService.getRandomNeutralBuildingOrder(),
+    );
 
-    this.randomStationMasters =
-      this.applicationConfigService.getRandomStationMasters();
+    this.randomStationMasters.set(
+      this.gwtSecondEditionConfigService.getRandomStationMasters(),
+    );
 
-    this.randomPlayerBuildings =
-      this.applicationConfigService.getRandomPlayerBuildings();
+    this.randomPlayerBuildings.set(
+      this.gwtSecondEditionConfigService.getRandomPlayerBuildings(),
+    );
   }
 }
